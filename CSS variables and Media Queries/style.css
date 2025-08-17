@@ -1,0 +1,37 @@
+:root{
+    --color:green;
+    --seccolor:blue;
+    /* this is global variable in css now if we want to apply
+    color to any element we can use this variables this variables
+    are used primarily to set themes and to change them without 
+    updating every line */
+}
+
+div ul {
+    display: flex;
+    list-style: none;
+    margin: 2px;
+    padding: 2px;
+    background-color: yellowgreen;
+}
+
+li{
+    margin: 2px;
+    padding: 2px;
+    margin-bottom: -1px;
+}
+
+ul :first-child{
+    background-color: aqua;
+}
+
+p{
+    
+    background-color: gray;
+    /* use of css variables */
+     background-color: var(--color);
+    /* not only color but we can set other properties aswell 
+    which are most oftenly used like padding margin font etc */
+
+} 
+
