@@ -1,0 +1,39 @@
+body{
+    background-color: red;
+   
+    
+}
+
+ @media only screen and (min-width:500px) {
+        body{
+            background-color: blue;
+        }
+
+        /* .boxes{
+            flex-direction: column;
+        } */
+    }
+
+    /* one more good way to do this is below */
+
+@media only screen and (orientation: landscape)
+{
+   body{
+    background-color: purple;
+   }
+
+}
+
+.boxes{
+    display: flex;
+}
+
+.box{
+    width: 344px;
+    height: 344px;
+    border: 2px solid black;
+    background-color: steelblue;
+    margin: 3px;
+    padding: 3px;
+}
+
