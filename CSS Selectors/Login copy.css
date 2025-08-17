@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),  /* Dark Overlay */
+        url('https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'); /* Background Image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff; /* White text for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    animation: fadeInBackground 1.5s ease-in-out;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.15); /* Increased transparency for blending */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Softer, more natural shadow */
+    text-align: center;
+    width: 350px;
+    backdrop-filter: blur(10px); /* Adds a smooth blur effect for a glassmorphism look */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border to maintain form */
+    animation: slideIn 1s ease-in-out;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #1b5e20;
+    font-size: 22px;
+}
+
+.input-group {
+    margin: 12px 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 1s forwards ease-in-out;
+    animation-delay: 0.3s;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    color: #ffffff; /* White labels for better contrast */
+    text-align: left;
+}
+
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+
+.input-group input:focus {
+    border-color: #388e3c;
+    box-shadow: 0 0 8px rgba(56, 142, 60, 0.5);
+    outline: none;
+}
+
+.login-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #388E3C;
+}
+
+.error-message {
+    color: #FF6B6B;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeInBackground {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

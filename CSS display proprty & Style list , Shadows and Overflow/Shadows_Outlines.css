@@ -1,0 +1,18 @@
+.box {
+    border: 2px solid black;
+    padding: 32px;
+    /*syntax for box shadows--> box-shadow: h-offset v-offset blur spread color inset; */
+    box-shadow: 5px 5px 15px 5px #e09191;
+    /* box-shadow: h-offset v-offset blur spread color inset; */
+
+}
+
+.para {
+    /* text-shadow: h-offset v-offset blur color; */
+    text-shadow: 2px 2px 4px yellowgreen;
+    outline: 5px solid yellowgreen;
+    border: 2px solid red;
+    border-radius: 10px;
+    /* so the basic difference between border and outline is 
+    that outline is not part of box model as we you can see in output. */
+}

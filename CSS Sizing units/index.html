@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Sizing units</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            border: 2px solid black;
+            /* width: 1920px; */
+            background-color: aqua;
+            width: 80vw;
+            margin: auto;
+            height: 10vh;
+        }
+
+        .container {
+            font-size: 16px;
+        }
+
+        /* .container p {
+            font-size: 4em;
+        }
+
+        html {
+            font-size: 6rem;
+        } */
+
+        .mycont{
+            background-color: red;
+            color: yellow;
+            font-size: 22px;
+            width: 100vmin;
+        }
+
+
+        /* In CSS,
+        the root element is the highest-level element in the Document Object Model (DOM). For any standard HTML document,
+        the root element is the <html>tag. To select and apply styles to this root element,
+        you use the CSS :root pseudo-class. */
+    </style>
+</head>
+
+<body>
+
+    <div class="box">This is a box</div>
+
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum officiis rem nam explicabo quia, fugiat
+            quidem consectetur porro ad mollitia iste asperiores perspiciatis nesciunt eveniet est quos optio tenetur
+            perferendis?</p>
+    </div>
+
+    <div class="mycont"> I am another container</div>
+
+</body>
+
+</html>

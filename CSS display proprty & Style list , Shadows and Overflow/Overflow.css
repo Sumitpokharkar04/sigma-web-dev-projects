@@ -1,0 +1,16 @@
+.box{
+    width: 40vw;
+    height: 40vh;
+    border: 2px solid black;
+    /* now to avoid overflow of content we can use css overflow property */
+    overflow: scroll ;
+    /* more better option is overflow: auto; because it only displays scroll bar if needed */
+    
+    /* now as we seen scroll takes the text down but what if we want to see it horizontally
+    then we use white-space: nowrap; */
+    white-space: nowrap;
+    /* text-overflow: ellipsis; --> this replaces overflowed tect with three dots */
+
+    /* overflow: hidden; and overflow: clip; are mostly same */
+   
+}

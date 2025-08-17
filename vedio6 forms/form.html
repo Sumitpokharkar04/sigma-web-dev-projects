@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form page-lets create it</title>
+    <link rel="stylesheet" href="external.css">
+</head>
+<!--internal css-->
+<style>
+    div{
+        color: darkmagenta;
+    }
+</style>
+
+<body>
+    <!--three ways to add css-->
+        <h1 style="color: red ; background-color:yellow;">form to apply for NASA</h1>
+        <div>
+            <label for="xyz">enter</label>
+            <form action="post">
+                <input type="text" name="usename" id="xyz" placeholder="enter your username">
+                <!--placeholder=>In place holder we give a message that we need to see 
+         int the box-->
+                <!--In Label we write a messg we need to see outside the box for the box 
+         for that we use ID that we declare in input tag.-->
+            
+        </div>
+
+        <div>
+            <h3>choose your gender</h3>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male"> male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">female</label>
+        </div>
+
+        <div>
+            <label for="text">enter your comment here</label>
+            <textarea  rows="8" cols="50" id="text"></textarea>
+        </div>
+
+        <div>
+            <select name="position" id="">
+                <option value="scientist">scientist</option>
+                <option value="engineer">engineer</option>
+                <option value="fuel propolsion engineer">fuel propolsion engineer</option>
+                <option value="aerospace engineer">aerospace engineer</option>
+            <!--In select tag we generally create a scroll down window to select from options
+            and it is between opening and closing tags of option tag that we give our options
+            value is the value of of our option integer,text,etc.-->
+            </select>
+        </div>
+    </form>
+    <span>hello lets check the external css</span>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+*{
+   
+
+  
+    
+}
+
+.box{
+    color: aqua;
+
+}
+
+.box1{
+    color: blueviolet;
+    padding: 100px;
+    border: 2px solid red;
+    background-color: yellow;
+    height: 200px;
+    /*if i dont write box sixing border box then css 
+    will alocate 200px just to the content 
+    but when i say box sizing border box then it means i am 
+    allocating 200px for content+padding...thats the catch*/
+    box-sizing: border-box;
+}
+
+.box2{
+    color: chartreuse;
+}

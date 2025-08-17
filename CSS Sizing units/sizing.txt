@@ -1,0 +1,48 @@
+Yes, your understanding of vw and vh is exactly right. 👍
+
+A width of 100vw will always cover the full viewport width, and a height of 100vh will always cover the full viewport height, no matter the device.
+
+Where the Confusion About vmin Lies
+
+You're on the right track, but there are two small, important corrections to your thinking about vmin.
+
+A CSS property always applies if you write it. It never "won't apply anything". The vmin unit just calculates a value (a number) for that property.
+
+Let's break down your examples:
+
+🤔 Scenario 1: height: 100vmin;
+
+You are correct about the laptop, but mistaken about the mobile phone. The height property will be applied on the phone.
+
+    On your Laptop (e.g., 1200px wide, 800px tall):
+
+        The browser sees the height (800px) is smaller.
+
+        100vmin is calculated to be 800px.
+
+        The final applied style is height: 800px;.
+
+    On your Mobile Phone (e.g., 400px wide, 900px tall):
+
+        The browser sees the width (400px) is now smaller.
+
+        100vmin is calculated to be 400px.
+
+        The final applied style is height: 400px;. It does not ignore the rule; it simply applies a different calculated value.
+
+🤔 Scenario 2: width: 100vmin; height: 100vmin;
+
+This is the most important point: both properties will apply. You will get a perfect square whose sides are equal to the smaller dimension of the viewport.
+
+    On your Laptop (smaller dimension is 800px height):
+
+        The style becomes width: 800px; height: 800px;.
+
+    On your Mobile Phone (smaller dimension is 400px width):
+
+        The style becomes width: 400px; height: 400px;.
+
+This is the primary power of vmin: creating perfectly proportional elements that always fit on the screen, shrinking or growing with the browser window while maintaining their shape.
+
+In summary: A CSS rule (height: 100vmin;) is an instruction that is always followed. The vmin part is just a flexible calculator that supplies the value for that instruction.
+

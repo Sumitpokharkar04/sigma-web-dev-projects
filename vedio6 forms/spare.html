@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        /* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #2e7d32;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #4caf50;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #c8e6c9;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 100px 20px;
+    background: url('https://images.pexels.com/photos/4218880/pexels-photo-4218880.jpeg') no-repeat center/cover;
+    color: white;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Overlay to enhance text visibility */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+/* Ensuring text is above the overlay */
+.hero h1, .hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Adding shadow for better visibility */
+}
+
+.hero p {
+    font-size: 22px;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6); /* Soft shadow effect */
+}
+
+/* About Section */
+.about, .vision-mission {
+    padding: 60px 20px;
+    text-align: center;
+    background: white;
+}
+
+.about .container {
+    max-width: 800px;
+    margin: auto;
+    animation: slideUp 1.5s ease-in-out;
+}
+
+/* Vision & Mission Section */
+.vision-mission {
+    background: #e8f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vision-mission .container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: auto;
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    min-width: 280px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #4caf50;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Green Thym Renewable Energy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🌱 Green Thym Energy</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>About Green Thym Renewable Energy</h1>
+        <p>Empowering a sustainable future through clean and efficient energy solutions.</p>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p>Founded in 2020, Green Thym Renewable Energy is committed to developing innovative and sustainable energy solutions. We specialize in solar, wind, and hydro power to create a greener future.</p>
+        </div>
+    </section>
+
+    <section class="vision-mission">
+        <div class="container">
+            <div class="box">
+                <h3>🌿 Our Mission</h3>
+                <p>To revolutionize energy consumption by providing affordable and sustainable renewable energy solutions for businesses and households.</p>
+            </div>
+            <div class="box">
+                <h3>⚡ Our Vision</h3>
+                <p>To lead the transition towards 100% renewable energy and create a world free of fossil fuels by 2050.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Green Thym Energy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

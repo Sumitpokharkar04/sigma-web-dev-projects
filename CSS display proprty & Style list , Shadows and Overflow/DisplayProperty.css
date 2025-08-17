@@ -1,0 +1,17 @@
+
+.box{
+    border: 2px solid black;
+    /* display: inline-block; */
+
+}
+.box1{
+    /*display: none;*/  /*this altogether removes the box or element*/
+    visibility:visible;/*visibility just hides the object but do not altogether removes
+    it so the spaces remains entact*/
+}
+.sp{
+    margin: 0px;
+    padding: 0px;
+    border: 4px solid blue;
+    display: inline-block;
+}

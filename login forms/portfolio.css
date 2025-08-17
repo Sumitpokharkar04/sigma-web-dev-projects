@@ -1,0 +1,145 @@
+
+.app-container {
+    background-color: #343a40;
+    color: white;
+    min-height: 100vh;
+  }
+  
+  /* Swiper styles */
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Sidebar styles */
+  aside {
+    position: relative;
+  }
+  
+  aside::after {
+    position: absolute;
+    width: 1px;
+    left: 100%;
+    height: 100%;
+    content: '';
+    background: linear-gradient(to top, transparent, rgba(255,255,255,0.1), transparent);
+    top: 0;
+  }
+  
+  aside li {
+    cursor: pointer;
+    position: relative;
+    transition-duration: 0.2s;
+  }
+  
+  aside li:hover {
+    color: #80ed99;
+  }
+  
+  .activeLink {
+    color: #80ed99;
+  }
+  
+  /* Home slide styles */
+  .home-slide {
+    color: white;
+    display: flex;
+    background-color: #343a40;
+  }
+  
+  .HomeContent {
+    margin: auto 0px;
+    flex: 1;
+    height: auto;
+    padding: 100px;
+    user-select: none;
+  }
+  
+  .stylized-name {
+    font-weight: 700;
+  }
+  
+  /* Utility classes */
+  .text-gradient {
+    background-image: linear-gradient(45deg, #80ed99, #57cc99);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Button hover effects */
+  button:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .HomeContent {
+      padding: 50px 20px;
+      flex-direction: column;
+    }
+    
+    .HomeContent img {
+      margin-top: 40px;
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  /* Page wrapper styles for transitions */
+  .page-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+  }
+  
+  /* New 3D rotation page transition animations */
+  .page-transition-enter {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(20deg) translateZ(100px);
+    transform-origin: left center;
+    filter: brightness(0.8);
+    z-index: 1;
+  }
+  
+  .page-transition-enter-active {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0) translateZ(0);
+    filter: brightness(1);
+    transition: 
+      opacity 600ms ease-out, 
+      transform 650ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+      filter 500ms ease;
+    z-index: 2;
+  }
+  
+  .page-transition-exit {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0) translateZ(0);
+    transform-origin: right center;
+    filter: brightness(1);
+    z-index: 2;
+  }
+  
+  .page-transition-exit-active {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(-20deg) translateZ(100px) scale(0.95);
+    filter: brightness(0.8);
+    transition: 
+      opacity 600ms ease-in, 
+      transform 650ms cubic-bezier(0.6, -0.28, 0.735, 0.045), 
+      filter 500ms ease;
+    z-index: 1;

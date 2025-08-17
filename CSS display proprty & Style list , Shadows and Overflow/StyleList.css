@@ -1,0 +1,12 @@
+nav ul li {
+    list-style: devanagari;
+    background-color: peru;
+    /* now generally marker is out of the list so any extra propert wont apply on it 
+    to bring it in list we use list-style-position: ; */
+    list-style-position: inside;
+   
+}
+
+nav ul{
+    display: flex;
+}

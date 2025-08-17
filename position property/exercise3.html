@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Making</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lobster&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+        .card {
+            width: 25vw;
+            height: 90vh;
+            border: 3px solid black;
+            background-color: bisque;
+            
+        }
+
+        .card img {
+            width: 96%;
+            height: 50%;
+            object-fit: cover;
+            border: 2px solid black;
+            border-radius:5px ;
+            display: block;
+             margin-left: auto;/* used for leaving equal space from left and right */
+            margin-right: auto;
+            margin-top: 5px;
+    
+        }
+
+        .card span {
+            margin: 5px;
+            padding: 10px;
+            position: relative;
+            top: 10px;
+            border: 2px solid black;
+            border-radius: 20px;
+            display: inline-block;/* inline block adds some padding and margin to inline elements
+            but keeps an element inline just used for keeping a separation of main content of 
+            inline tags from each other */
+            background-color: coral;
+            margin-bottom: 10px;
+            font-family: "Exo 2", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            
+
+        }
+
+        .specific {
+            position: relative;
+            left: 120px;
+            background-color: aquamarine;
+            border: 2px solid black;
+            border-radius: 20px;
+            margin: 5px;
+            padding: 10px;
+            top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="https://tinyurl.com/mr2enxsa" alt="">
+        <span>Grow</span>
+        <span>Together</span>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, cum? Recusandae ab illum nobis illo
+            quibusdam vitae similique laudantium assumenda nihil? Assumenda eos ab inventore!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia minima repellendus harum quisquam ad
+            maiores, earum perspiciatis et fugiat fugit.</p>
+        <dic class="specific">Read More</dic>
+    </div>
+</body>
+
+</html>

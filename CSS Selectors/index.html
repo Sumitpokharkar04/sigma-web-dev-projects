@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        /* element selector */
+        div{
+            background-color: yellowgreen;
+        }
+        /* class selector */
+        .yellow{
+            background-color: yellow;
+        }
+        /* id selectors */
+        #green{
+            background-color: brown;
+        }
+
+        /* child selectors */
+        div>p{
+            color: red;
+            background-color: yellow;
+
+        }
+
+        /* descendent selector */
+        div p {
+            
+            background-color: wheat;
+            color: black;
+        }
+
+        /* universal selector */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* pseudo selector */
+        a :visited{
+            color: purple;
+            /* colour will change after visiting the link */
+        }
+
+        a link{
+            color: blue;
+            /* color of link before visiting it */
+        }
+
+        a :active{
+
+            background-color: pink;
+            /* color when we are clicking it it */
+        }
+
+        a:hover{
+
+            background-color: yellow;
+            /* when we hover over a link */
+        }
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        i am a div
+        <p>hello world</p>
+    </div>
+
+    <div class="yellow">
+        i am another div
+
+        <article><p>this is article</p></article>
+    </div>
+
+    <div id="green"> I am third ID vala div</div>
+
+    <a href="https://www.Google.com">google</a>
+    <a href="https://wwww.facebook.com">facebook</a>
+    
+</body>
+</html>
