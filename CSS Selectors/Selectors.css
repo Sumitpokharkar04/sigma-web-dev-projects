@@ -1,0 +1,45 @@
+/* .box:first-child{
+    background-color: red;
+} */
+
+.box::first-line {
+    color: red;
+}
+
+.boxes * {
+    color: blue;
+}
+
+[data-color="primary"] {
+    margin-top: 10px;
+    padding: 2px;
+    border: 2px solid black;
+    /* This is attribute selector */
+}
+
+div,
+[data-color="primary"] {
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.boxes :nth-last-child(1) {
+    /*it will apply a property from last to the number we give so it will start and on reaching the number from bottom it will apply property*/
+    background-color: yellowgreen;
+}
+
+.boxes ::before {
+    content: "I inserted this line using CSS this is also called dynamic insertion and i did this with the help of before property and content attribute";
+}
+
+::selection{
+    color: aqua;
+    background-color: black;
+    /* Now as user will select the text or any content within boxes class it will apply this property */
+    /* I can also just write ::selection and it will apply the property to entire page */
+    /* Also this property wont apply to the text that is dynamically added means added using CSS */
+}
+
+input::placeholder{
+    color: blueviolet;
+}

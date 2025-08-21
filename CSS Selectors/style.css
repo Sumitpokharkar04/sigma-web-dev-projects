@@ -1,0 +1,56 @@
+ /* element selector */
+        div{
+            background-color: yellowgreen;
+        }
+        /* class selector */
+        .yellow{
+            background-color: yellow;
+        }
+        /* id selectors */
+        #green{
+            background-color: brown;
+        }
+
+        /* child selectors */
+        div>p{
+            color: red;
+            background-color: yellow;
+
+        }
+
+        /* descendent selector */
+        div p {
+            
+            background-color: wheat;
+            color: black;
+        }
+
+        /* universal selector */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* pseudo selector */
+        a :visited{
+            color: purple;
+            /* colour will change after visiting the link */
+        }
+
+        a link{
+            color: blue;
+            /* color of link before visiting it */
+        }
+
+        a :active{
+
+            background-color: pink;
+            /* color when we are clicking it it */
+        }
+
+        a:hover{
+
+            background-color: yellow;
+            /* when we hover over a link */
+        }
