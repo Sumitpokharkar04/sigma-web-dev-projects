@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Here we will learn insertion and deletion with help
+     of selectors like getelement and getclass... -->
+     <div class="container">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+     </div>
+</body>
+</html>
+<!-- document.querySelector(.container).innerHTML
+VM341:1 Uncaught SyntaxError: Unexpected token '.'Understand this error
+document.querySelector(".container").innerHTML
+'\n        <div class="box">box1</div>\n        <div class="box">box2</div>\n     '
+document.querySelector(".container").outerHTML
+'<div class="container">\n        <div class="box">box1</div>\n        <div class="box">box2</div>\n     </div>'
+document.querySelector(".container").tagName
+'DIV'
+document.querySelector(".container").nodeName
+'DIV'
+document.designMode
+'off'
+document.querySelector(".container").attributes
+NamedNodeMap {0: class, class: class, length: 1}
+document.querySelector(".container").hasAttribute("style")
+false
+document.querySelector(".container").getAttribute("style")
+null
+document.querySelector(".container").setAttribute("style")
+VM1192:1 Uncaught TypeError: Failed to execute 'setAttribute' on 'Element': 2 arguments required, but only 1 present.
+    at <anonymous>:1:38
+(anonymous) @ VM1192:1Understand this error
+document.querySelector(".container").setAttribute("style", "display : inline")
+undefined
+document.querySelector(".container").getAttribute("style")
+'display : inline' -->
