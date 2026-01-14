@@ -12,14 +12,16 @@ console.log(a.length)
 let real_name = "Harry"
 let friend = "Rohan"
 console.log("His name is " + real_name + " and his friends name is " + friend)
+//string interpolation is done by using backticks ``It is also called template literals.
+//What is the advantage of template literals ? We can use variables directly in the string without using + operator.
 console.log(`His name is ${real_name} and his friends name is ${friend}`)
 
 let b = "ShivamSh"
 console.log(b.toUpperCase())
-console.log(b.toLowerCase()) 
-console.log(b.length) 
-console.log(b.slice(1, 5)) 
-console.log(b.slice(1)) 
+console.log(b.toLowerCase())
+console.log(b.length)
+console.log(b.slice(1, 5))
+console.log(b.slice(1))
 
 console.log(b.replace("Sh", "77"))
 console.log(b.concat(a, "Aishwariya", "Rahul", "Priya"))

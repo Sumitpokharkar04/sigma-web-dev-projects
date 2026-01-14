@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            border: 2px solid navy;
+        }
+    </style>
+</head>
+<body>
+    <script src="DOM.js"></script>
+  <div class = "container">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+  </div>
+
+</body>
+</html>
+<!-- let x = document.body.childNodes[1]
+undefined
+let y = document.body.childNodes[3]
+undefined
+y.firstElementChild.style.colo="red"
+'red'
+y.firstElementChild.style.color="red"
+'red'
+y.firstElementChild.style.backgroundColor="orange"
+'orange'
+y.firstElementChild.parentNode
+<div class=​"container">​…​</div>​
+document.body.children
+HTMLCollection(2) [script, div.container]0: script1: div.containerlength: 2[[Prototype]]: HTMLCollection
+document.body.lastElementChild.children
+HTMLCollection(5) [div.box, div.box, div.box, div.box, div.box]
+document.body.lastElementChild.children[0]
+<div class=​"box" style=​"color:​ red;​ background-color:​ orange;​">​box1​</div>​flex
+document.body.lastElementChild.children[1]
+<div class=​"box">​box2​</div>​flex
+document.body.lastElementChild.children[2]
+<div class=​"box">​box3​</div>​flex
+document.body.lastElementChild.children[3]
+<div class=​"box">​box4​</div>​flex
+document.body.lastElementChild.children[4]
+<div class=​"box">​box5​</div>​flex
+document.body.lastElementChild.children[5]
+undefined
+document.body.lastElementChild.children[1].style.backgroundColor="green"
+'green'
+document.body.lastElementChild.children[2].style.backgroundColor="yellow"
+'yellow'
+document.body.lastElementChild.children[3].style.backgroundColor="peach"
+'peach' -->
