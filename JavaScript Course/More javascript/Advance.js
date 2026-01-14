@@ -34,7 +34,7 @@ let obj = {
 } 
 function sum(a,b,c)
 {
-    return a+b+c;
+    return a+b+c; 
 }
 let {a,b}=obj;
 console.log(a,b);
