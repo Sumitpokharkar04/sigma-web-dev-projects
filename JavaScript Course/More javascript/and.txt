@@ -1,0 +1,97 @@
+is it same in java that && can you explain it in detail how it works in JS
+
+Excellent question — and no, it is NOT the same in Java.
+This difference is very important and often trips up Java developers learning JS (which you are doing 👍).
+
+I’ll explain Java first, then JavaScript, then give a clear mental model.
+
+1️⃣ How && works in Java
+
+In Java:
+
+String name = "Butters";
+int age = 3;
+
+System.out.println(name && age); // ❌ COMPILE ERROR
+
+Why?
+
+Because in Java:
+
+&& ONLY works on boolean values
+
+It always returns boolean
+
+It is a logical operator, not a value operator
+
+Valid Java usage
+if (name != null && age > 0) {
+    System.out.println("Valid");
+}
+
+
+Here:
+
+name != null → boolean
+
+age > 0 → boolean
+
+Result → boolean (true or false)
+
+👉 Java && = boolean AND only
+
+2️⃣ How && works in JavaScript (VERY different)
+
+In JavaScript:
+
+"name" && 3   // → 3
+0 && "hi"     // → 0
+null && 5     // → null
+
+Why?
+
+Because in JS:
+
+&& is not just logical
+
+It is a short-circuit value operator
+
+It returns one of the operands, not true/false
+
+🔑 JavaScript && evaluation rule
+
+For:
+
+A && B
+
+JS does this:
+
+Convert A to boolean
+
+If A is falsy → return A
+
+If A is truthy → return B
+
+👉 No boolean result required
+
+3️⃣ What is "truthy" and "falsy" in JS
+❌ Falsy values (VERY IMPORTANT)
+
+Only these are falsy:
+
+false
+0
+-0
+0n
+""
+null
+undefined
+NaN
+
+
+👉 Everything else is truthy
+
+Examples
+"hello" && "world"   // "world"
+1 && 100             // 100
+[] && {}              // {}
