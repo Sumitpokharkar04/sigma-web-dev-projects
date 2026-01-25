@@ -10,10 +10,10 @@ arr.forEach((num) => {
 now lets make a fresh array to see how we can use filter instead of for each and
 return values */
 
-// const arr1 = [1,2,3,4,5,6,7,8];
+const arr1 = [1,2,3,4,5,6,7,8];
 
-// const nums = arr.filter((num)=>num>4);
-// console.log(nums);
+const nums = arr.filter((num)=>num>4);
+console.log(nums);
 
 /* or we can use like this
 const nums = arr.filter((num)=>{
