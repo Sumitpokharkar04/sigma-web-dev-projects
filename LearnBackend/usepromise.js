@@ -1,12 +1,19 @@
-import fs from "fs"
+import fs from "fs";
 
-let a = await fs.readFile("harry.txt",(error,data)=>{
+fs.readFile("harry.txt", (error, data) => {
+    if (error) {
+        console.error("Error reading file:", error);
+        return;
+    }
     console.log(data.toString());
+
+    // Append text after reading
+    fs.appendFile("harry.txt", "\nkaise ho bhai", (err) => {
+        if (err) console.error("Error appending:", err);
+        else console.log("Append successful");
+    });
 });
 
-// let b = await fs.writeFile("harry.txt.","i have written something");
-let c = await fs.appendFile("harry.txt","\nkaise ho bhai",(error)=>{
-  console.log(c);
-});
-
+let z = 2;
+console.log(z);
 
