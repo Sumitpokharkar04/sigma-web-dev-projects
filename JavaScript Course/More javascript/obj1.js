@@ -12,7 +12,9 @@ class animal{
 
 class dog extends animal{
     constructor(name){
+        super(name);
         this.name=name;
+        
         console.log("dog constructor called");
     }
     bark(){
