@@ -8,7 +8,7 @@ task 3 make food*/
 function walkdog(callback)
 {
     setTimeout(()=>{
-        console.log("you walked the dog ")
+        console.log("you walked the dog ");
         callback();
     },2500);
 }
@@ -17,7 +17,7 @@ function walkdog(callback)
 function clean(callback)
 {
     setTimeout(()=>{
-        console.log("you cleaned the kitchen ")
+        console.log("you cleaned the kitchen ");
         callback();
     },1000);
 
@@ -26,7 +26,7 @@ function clean(callback)
 function food(callback)
 {
     setTimeout(()=>{
-        console.log("you made the food")
+        console.log("you made the food");
         callback();
     },500);
 
@@ -35,7 +35,7 @@ function food(callback)
 walkdog(()=>{
     clean(()=>{
         food(()=>{
-            console.log("all tasks completed")
+            console.log("all tasks completed");
         })
     })
 })
@@ -51,7 +51,7 @@ function morining()
 {
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-        resolve(console.log("hello world"))
+        resolve(console.log("hello world"));
     },2000)
     })
 }
@@ -60,7 +60,7 @@ function breakfast()
 {
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-        resolve("you did your breakfast")
+        resolve("you did your breakfast");
     },1000)
     })
 }
@@ -69,7 +69,7 @@ function newspaper()
 {
    return new Promise((resolve,reject)=>{
      setTimeout(()=>{
-        resolve("you read your newspaper")
+        resolve("you read your newspaper");
     },900)
    })
 }
