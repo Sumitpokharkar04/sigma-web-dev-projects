@@ -18,22 +18,22 @@ console.log(sumit);//and as we can see our default object gets printed
 //now this we did with the ecma script syntac if we had to do the same thing with
 //common js lets see what is the syntax of it
 
-// const a = require("./myModules.js");
-// console.log(a);
+const a = require("./myModules.js");
+console.log(a);
 
 
 
-// const { createServer } = require('node:http');
+const { createServer } = require('node:http');
 
-// const hostname = '127.0.0.1';
-// const port = 3000;
+const hostname = '127.0.0.1';
+const port = 3000;
 
-// const server = createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader('Content-Type', 'text/html');
-//   res.end('<h1>Hello World</h1>');
-// });
+const server = createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  res.end('<h1>Hello World</h1>');
+});
 
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});

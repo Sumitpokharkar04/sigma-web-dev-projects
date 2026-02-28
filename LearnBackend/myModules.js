@@ -9,7 +9,7 @@ export let obj = {
 
 
 let obj1;
-export default obj1 = {
+export default obj1 = {//This is default export so we can import with any name   
     u:2,
     v:3
 }
