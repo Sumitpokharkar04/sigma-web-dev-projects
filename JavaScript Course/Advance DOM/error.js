@@ -2,8 +2,8 @@ let a = prompt("Enter a number");
 let b = prompt("Enter another number");
 
 if(isNaN(a) || isNaN(b)){
-    throw new Error("Invalid input: Please enter numeric values only"); //
-    throw SyntaxError("Invalid input: Please enter numeric values only");
+    throw new Error("Invalid input: Please enter numeric values only");
+   // throw SyntaxError("Invalid input: Please enter numeric values only");
 
 }
 try {

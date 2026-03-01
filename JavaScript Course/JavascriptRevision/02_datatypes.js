@@ -1,7 +1,7 @@
 /*There are various types of datatypes in javascript , though we dont directly mention them in js as we do in java or 
 some other languages in variable declaration lets see some of them
 
-***Primitive Data Types***
+***Primitive Data Types****
 
 integer => 2 to the power of 53 
 bigInt => Numbers greater than Integer Sizes
