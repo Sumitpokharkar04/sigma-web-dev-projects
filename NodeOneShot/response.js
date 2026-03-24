@@ -1,5 +1,5 @@
 const http = require('http')
-
+//Learn to send a response
 const server = http.createServer((req,res)=>{
     res.setHeader("Content-Type","text/html")
     res.write("<h2>server running</h2>")
