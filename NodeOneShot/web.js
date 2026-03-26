@@ -9,11 +9,19 @@ const server = http.createServer((req,res)=>{
             res.end()
             return
         }
-        else
+        if(req.url==="/")
         {
             res.writeHead(200,{"content-type":"text/html"})
             res.write(data)
             res.end()
+        }
+        else if(req.url==="/submit" && req.method==="POST")
+        {
+            console.log(req.method);
+            
+            res.writeHead(200, {"content-type":"text/html"})
+            res.write("<h1>data submitted</h1>")
+            return res.end()
         }
     })
 })

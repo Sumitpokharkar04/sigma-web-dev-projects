@@ -1,0 +1,151 @@
+📘 Node.js + Form Handling (Doubts & Answers)
+❓ 1. How does this code work overall?
+
+Answer:
+
+👉 There are 2 parts:
+
+HTML (Frontend) → shows form and takes input
+Node.js (Backend) → serves HTML and handles requests
+Flow:
+User opens / → server sends HTML page
+User fills form → clicks submit
+Browser sends request to /submit
+Server responds with "data submitted"
+❓ 2. What does res.write(), res.end(), and res.writeHead() do?
+
+Answer:
+
+res.write() → sends data to browser
+res.end() → ends the response
+res.writeHead() → sets status code + headers
+
+👉 Best practice:
+
+res.writeHead(200, {"content-type":"text/html"})
+res.write("Hello")
+res.end()
+
+
+❓ 3. If res.end() runs in if, how does it go to else if?
+Answer:
+👉 It does NOT go to else if
+
+if and else if → only ONE block runs
+If if is true → else if is skipped
+❓ 4. Then why was res.end() running twice?
+
+Answer:
+
+Because you wrote:
+
+if(...) {
+   res.end()
+}
+res.end() // runs again
+
+👉 The second res.end() is outside, so it runs always
+
+
+
+❓ 5. Does res.end() stop code execution?
+Answer:
+👉 ❌ No
+👉 It only ends the response
+
+To stop execution, use:
+
+return res.end()
+
+
+❓ 6. Why did I still see /submit response after / already ran?
+Answer:
+👉 Because they are two different requests
+
+Action	Request
+Open page	/
+Click submit	/submit
+
+👉 Server runs fresh code for each request
+
+❓ 7. Does server remember previous request?
+Answer:
+👉 ❌ No (stateless)
+Each request:
+starts from top
+has no memory of previous request
+
+
+❓ 8. Is HTML rendered twice?
+Answer:
+👉 ❌ No
+/ → HTML page is sent
+/submit → new response replaces page
+
+
+❓ 9. Why is fs.readFile running even for /submit?
+Answer:
+👉 Because it’s inside the server callback
+(req, res) => {
+   fs.readFile(...) // runs every request
+}
+👉 Runs for:
+/
+/submit
+
+
+❓ 10. Why didn’t form data go to server?
+Answer:
+👉 Missing name attribute:
+<input type="text" placeholder="name"> ❌
+✅ Correct:
+<input type="text" name="name">
+
+
+❓ 11. Why don’t I see "data submitted" when typing /submit in URL?
+Answer:
+👉 Because of GET vs POST
+Action	Method
+Button click	POST
+Typing URL	GET
+
+
+❓ 12. What’s the fix for /submit?
+Answer:
+else if(req.url==="/submit")
+{
+    res.writeHead(200, {"content-type":"text/html"})
+    res.write("<h1>data submitted</h1>")
+    return res.end()
+}
+
+
+❓ 13. What is the correct way to handle routes?
+Answer:
+if(req.url==="/" && req.method==="GET"){
+    // serve HTML
+}
+else if(req.url==="/submit" && req.method==="POST"){
+    // handle form
+}
+
+
+❓ 14. What is the most important concept here?
+Answer:
+👉 Each request runs the server code from the beginning
+
+
+❓ 15. What res.end() REALLY means
+
+👉 It tells Node:
+
+“I’m done sending the response. Send everything to the browser now.”
+
+After this → ❌ you cannot send more data
+If you don’t call it → browser keeps waiting ⏳
+
+✅ Where SHOULD you use res.end()
+
+👉 Rule:
+
+Use res.end() exactly once per request
