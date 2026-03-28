@@ -1,0 +1,168 @@
+📘 Node.js Internals (Complete Q&A)
+❓1. What are the main components of Node.js?
+✅ Answer:
+
+Node.js has these main components:
+
+V8 Engine
+Executes JavaScript
+Single-threaded
+Event Loop
+Manages execution of tasks
+Picks tasks from queues
+libuv
+Handles async operations
+Uses OS + thread pool
+Callback Queue
+Stores completed async callbacks
+Microtask Queue
+Stores Promise callbacks
+Higher priority than callback queue
+Node APIs
+fs, http, setTimeout, etc.
+❓2. What is a callback?
+✅ Answer:
+
+A callback is a function that runs after an asynchronous task is completed.
+
+Example:
+fs.readFile("home.html", (err, data) => {
+    console.log("File loaded")
+})
+
+👉 The function (err, data) => {} is the callback.
+
+❓3. Why are callbacks used?
+✅ Answer:
+
+Because JavaScript is non-blocking.
+
+👉 Instead of waiting:
+
+Task is started
+JS continues execution
+Callback runs when task finishes
+❓4. What is the event loop?
+✅ Answer:
+
+The event loop continuously checks if the JS thread is free and executes pending tasks from queues.
+
+❓5. What is the callback queue?
+✅ Answer:
+
+A queue where completed async task callbacks are stored.
+
+Example:
+
+fs.readFile done → callback added to queue
+❓6. What is the microtask queue?
+✅ Answer:
+
+A high-priority queue that stores:
+
+Promise .then()
+process.nextTick()
+❓7. What is libuv?
+✅ Answer:
+
+libuv is a C library used by Node.js to handle asynchronous operations like file system, network, and timers.
+
+❓8. What does libuv handle?
+✅ Answer:
+File system operations (fs)
+Network requests
+Timers (setTimeout)
+Some background tasks
+❓9. What does the JS thread handle?
+✅ Answer:
+Running JavaScript code
+Executing callbacks
+Handling logic (if/else, loops)
+❓10. What happens when an async function is called?
+✅ Answer:
+
+Example:
+
+fs.readFile("home.html", callback)
+
+Flow:
+
+1. JS sees async task
+2. Sends it to libuv
+3. JS continues execution
+4. Task completes in background
+5. Callback added to queue
+6. Event loop executes it
+❓11. How does Node.js handle multiple requests?
+✅ Answer:
+1. Request comes
+2. JS handles initial logic
+3. Async work → sent to libuv
+4. JS becomes free
+5. Handles next request
+6. Completed tasks → callbacks queued
+7. Event loop executes them
+❓12. Why is Node.js non-blocking?
+✅ Answer:
+
+Because:
+
+It delegates async tasks to libuv
+JS thread does not wait
+Event loop manages execution
+❓13. What is the difference between callback queue and microtask queue?
+✅ Answer:
+Feature	Microtask Queue	Callback Queue
+Priority	High	Low
+Used for	Promises	fs, setTimeout
+Execution	First	After microtasks
+❓14. What is execution order in Node.js?
+✅ Answer:
+1. Synchronous JS code
+2. Microtasks (Promises)
+3. Callback Queue (I/O, timers)
+❓15. What is the complete flow of Node.js?
+✅ Answer:
+1. Request arrives
+2. JS executes handler
+3. Async task found → sent to libuv
+4. JS continues execution
+5. Task completes in background
+6. Callback added to queue
+7. Event loop checks
+8. Callback executed
+9. Response sent
+❓16. Does JavaScript do all work?
+✅ Answer:
+
+❌ No
+
+✔ JS handles logic
+✔ libuv/OS handles async tasks
+
+❓17. What happens when there is no work?
+✅ Answer:
+Event loop → waits (idle)
+
+JS does nothing until new tasks arrive.
+
+❓18. What is the role of the event loop in simple terms?
+✅ Answer:
+
+It connects async work completion with JavaScript execution.
+
+❓19. What is the role of queues in Node.js?
+✅ Answer:
+Store tasks waiting to execute
+Maintain execution order
+Separate priorities (microtask vs callback)
+❓20. Final One-Line Explanation of Node.js
+✅ Answer:
+
+Node.js executes JavaScript on a single thread, delegates asynchronous operations to libuv/OS, and uses the event loop to process callbacks without blocking execution.
+
+🚀 Ultra Short Summary
+JS → executes code
+libuv → does async work
+Queues → store callbacks
+Event loop → runs them
