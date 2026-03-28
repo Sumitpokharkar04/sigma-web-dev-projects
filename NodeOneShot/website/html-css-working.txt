@@ -1,0 +1,181 @@
+📘 HTML + CSS + Browser Working (Q&A)
+❓1. If I only open /, how does CSS load without visiting /style.css?
+✅ Answer:
+
+When the browser loads HTML, it parses it line by line.
+When it encounters:
+
+<link rel="stylesheet" href="/style.css">
+
+👉 It automatically sends a new request:
+
+GET /style.css
+
+So:
+
+/ → loads HTML
+/style.css → automatically requested by browser
+❓2. Do if and else if both run for HTML and CSS?
+✅ Answer:
+
+❌ No
+
+Each request is separate
+
+Request 1 → / → if (req.url === "/")
+Request 2 → /style.css → else if (req.url === "/style.css")
+
+👉 Server function runs again for each request
+
+❓3. Does browser load full HTML first and then request CSS?
+✅ Answer:
+
+❌ No
+
+👉 Browser:
+
+Starts parsing HTML immediately
+As soon as it sees CSS → sends request
+
+✔ Happens in parallel
+
+❓4. If CSS request starts early, does HTML request stop?
+✅ Answer:
+
+❌ No
+
+Both run independently in parallel
+
+HTML downloading  → continues
+CSS downloading   → starts
+
+👉 Each request has its own connection
+
+❓5. Can a single port handle multiple requests?
+✅ Answer:
+
+✔ Yes
+
+Port = just an address (like a door)
+Server handles multiple requests using async (non-blocking) I/O
+
+👉 Node.js handles multiple requests using:
+
+Event loop
+Background threads (for file, network)
+❓6. But JavaScript is single-threaded, right?
+✅ Answer:
+
+✔ Yes — but:
+
+JS thread = single
+Heavy work (fs, network) → handled by system (libuv)
+
+👉 So:
+
+JS delegates → OS does work → JS continues
+❓7. Does HTML render first and then CSS apply?
+✅ Answer:
+
+❌ Not exactly
+
+✔ HTML is parsed first
+✔ CSS is fetched in parallel
+✔ Browser waits for CSS
+✔ THEN renders page
+
+❓8. When exactly is CSS applied?
+✅ Answer:
+
+Only after:
+
+CSS is fully downloaded
+CSSOM is created
+
+Then:
+
+DOM + CSSOM → Render Tree → Page rendered
+❓9. What is Render Blocking?
+✅ Answer:
+
+Browser waits for CSS before rendering UI
+
+Even if HTML is ready, browser pauses:
+
+HTML parsed ✔
+CSS loading ⏳
+→ WAIT (render blocking)
+→ CSS ready ✔
+→ Render 🎨
+❓10. Why does browser wait for CSS?
+✅ Answer:
+
+To avoid:
+
+Unstyled page → styled page → flicker ❌
+
+👉 Better UX = show fully styled page directly
+
+❓11. Why “entire CSS” but only “enough HTML”?
+✅ Answer:
+HTML:
+
+✔ Sequential
+✔ Can render partially
+
+CSS:
+
+❌ Global + Cascading
+❌ Can override anything later
+
+Example:
+h1 { color: red; }
+
+If loaded late:
+
+Before → black
+After → red
+
+❌ Flicker → bad UX
+
+❓12. Why not “partial CSS + partial HTML”?
+✅ Answer:
+
+Because browser cannot predict future CSS rules
+
+Example:
+
+* { display: none; }
+
+👉 Could affect entire page
+
+So browser waits for:
+✔ Full CSS
+✔ Enough HTML
+
+❓13. Final Rendering Flow
+✅ Answer:
+1. Request HTML
+2. Parse HTML → build DOM
+3. Find CSS → request it
+4. CSS loads → build CSSOM
+5. DOM + CSSOM → Render Tree
+6. Render page 🎨
+❓14. Are HTML and CSS requests parallel?
+✅ Answer:
+
+✔ Yes
+
+But:
+
+Task	Behavior
+Requests	Parallel ✅
+Rendering	Waits for CSS ❌
+🧠 Final Master Summary
+HTML → progressive (can render early)
+CSS  → blocking (must be complete)
+
+Rendering = DOM + CSSOM
+🚀 Interview One-Liner
+
+“The browser parses HTML and fetches CSS in parallel, but rendering is blocked until CSSOM is ready, after which it combines with DOM to render the page.”
