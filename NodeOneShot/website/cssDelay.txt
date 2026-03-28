@@ -1,0 +1,19 @@
+when i made a separate header.html and connected it to rest of html one problem 
+for few seconds html was just showing and then css was applied,it happened because
+when i made header and did not link css there first header used to get parsed and
+then the home.html which contained link-css
+Browser first loads HTML
+Then discovers CSS via <link>
+Sends a separate request for CSS
+CSS arrives later → styling applied
+
+👉 This delay is normal and is called FOUC (Flash of Unstyled Content)
+and also because header did not contained link when browser starts parsing css
+generally go lower and this was alo a reason
+browser => header.html => home.html => encounters css in header
+
+✅ Solution:
+1)link css in header.html this way browser encounters it early and starts loading
+it earlier
+2) use caching so css is stored in browser
+        res.writeHead(200, { "content-type": "text/css" , "Cache-Control": "public, max-age=3600" })
