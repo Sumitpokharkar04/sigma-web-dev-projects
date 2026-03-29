@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>404 - Page Not Found</title>
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: Arial, sans-serif;
+                background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
+                color: white;
+            }
+
+            .container {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 6rem;
+                margin: 0;
+                color: #ff4c4c;
+            }
+
+            h2 {
+                margin: 10px 0;
+                font-size: 2rem;
+            }
+
+            p {
+                color: #ccc;
+                margin-bottom: 20px;
+            }
+
+            a {
+                display: inline-block;
+                padding: 10px 20px;
+                background: #ff4c4c;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: 0.3s;
+            }
+
+            a:hover {
+                background: #ff1f1f;
+                transform: scale(1.05);
+            }
+
+            .ghost {
+                font-size: 5rem;
+                animation: float 2s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-15px); }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="ghost">👻</div>
+            <h1>404</h1>
+            <h2>Page Not Found</h2>
+            <p>Oops! The page you are looking for doesn’t exist.</p>
+            <a href="/">Go Back Home</a>
+        </div>
+    </body>
+    </html>
