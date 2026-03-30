@@ -13,12 +13,12 @@ function checkAge(req,resp,next)
     }
 }
 
-app.use(checkAge)
+
 app.get("/",(req,resp)=>{
     resp.send("Home Page")
 })
 
-app.get("/about",(req,resp)=>{
+app.get("/about", checkAge, (req,resp)=>{
     resp.send("about Page")
 })
 
