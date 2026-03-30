@@ -4,12 +4,22 @@ const port = 3200
 //http://localhost:3200/about?age=20
 function checkAge(req,resp,next)
 {
-    if(req.query.age>18)
-    {
-        next()
+    const ageParam = req.query.age;
+
+    if (ageParam === undefined) {
+        return resp.status(400).send("Age is required");
     }
-    else{
-        resp.send("Alert ! you are under age")
+
+    const age = Number(ageParam);
+
+    if (!Number.isFinite(age)) {
+        return resp.status(400).send("Invalid age");
+    }
+
+    if (age > 18) {
+        next();
+    } else {
+        resp.status(403).send("Alert ! you are under age");
     }
 }
 
