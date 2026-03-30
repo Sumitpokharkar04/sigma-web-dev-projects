@@ -28,6 +28,5 @@ folder out that is main folder that consist pages folder which has home.html and
 
     const absPath = path.join(__dirname, '../pages/home.html')
 
-    const absPath = path.join(__dirname, '../pages/home.html')
     console.log(absPath)
     Output => D:\sigma-web-dev-projects\ExpressOneShot\pages\home.html
