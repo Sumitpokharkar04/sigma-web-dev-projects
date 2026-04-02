@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>save data to database</title>
+</head>
+<body>
+    <!--Final Rule to Remember
+:id → only used in route definition
+Actual URL → only real value, no :-->
+
+    <form action="/update-data/<%=result._id%>" method="post">
+        <input type="text" placeholder="enter name" name="name" value="<%=result.name%>">
+        <br>
+        <input type="number" placeholder="enter age" name="age" value="<%=result.age%>">
+        <br>
+        <input type="email" name="email" placeholder="enter email" value="<%=result.email%>">
+        <br>
+        <button>update user in database</button>
+    </form>
+</body>
+</html>
