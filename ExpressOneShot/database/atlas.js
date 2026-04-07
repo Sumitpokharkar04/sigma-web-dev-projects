@@ -17,7 +17,7 @@ async function dbConnection()
     const collection = db.collection('student')
 
     const result = await collection.find().toArray()
-    console.log(result);
-    
+    console.log(result);   
 }
+
 dbConnection()
