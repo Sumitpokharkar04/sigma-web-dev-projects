@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=DM+Serif+Text:ital@0;1&family=Exo+2:ital,wght@0,100..900;1,100..900&family=IM+Fell+DW+Pica:ital@0;1&family=Libertinus+Keyboard&family=Lobster&family=Pacifico&family=Rye&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=DM+Serif+Text:ital@0;1&family=Exo+2:ital,wght@0,100..900;1,100..900&family=IM+Fell+DW+Pica:ital@0;1&family=Libertinus+Keyboard&family=Lobster&family=Pacifico&family=Rye&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+.body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #111;
+}
+
+.parent {
+  margin: 0px;
+  padding: auto;
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+
+.card {
+  height: 400px;
+  width: 350px;
+  margin: 20px;
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.top img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 5px;
+  padding: 5px;
+  margin-left: 30px;
+  margin-bottom: 0;
+  display: block;
+  align-items: center;
+  background-color: rgb(198, 193, 193);
+  border-radius: solid black 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5)
+}
+
+.top h1 {
+  margin: 10px;
+  margin-top: 10px;
+  padding: 0;
+  color: #111;
+   font-family: "IM Fell DW Pica", serif;
+}
+
+.top h3 {
+  margin: 10px;
+  padding: 10px;
+  margin-top: 20;
+  color: #111;
+   font-family: "IM Fell DW Pica", serif;
+}
+
+/*
+I was trying to do space evenly with three buttons inside div.center but it was failing
+until i dif width 100%
+things did not worked until i gave width 100% why
+When a parent is flex column and you write:align-items: center;
+ then child elements do not stretch to full width. They shrink according to their content.
+ 
+ justify-content distributes extra empty space inside the parent div.
+ .button-container was probably only taking as much width as its content needed.
+ There is almost no extra space inside the container, so space-evenly has nothing to distribute.
+ width: 100% tells the button container:
+
+“Use the full width of your parent.”*/
+.center {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.center button {
+  height: 40px;
+  width: 80px;
+  background-color: rgb(162, 157, 157);
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+
+.bottom button {
+  height: 40px;
+  width: 300px;
+}
