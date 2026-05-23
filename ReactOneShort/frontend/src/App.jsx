@@ -1,12 +1,11 @@
 import Card from './Components/Card.jsx'
 import './App.css'
+import Learn_Function from './Components/Learn_Function.jsx'
 
 function App() {
   return (
-    <div className="cardcontainer">
-      <Card user='sumit' age={22}/> 
-      <Card user='sumit' age={22}/> 
-      <Card user='Narayan' age={32}/> 
+    <div >
+      <Learn_Function/>
     </div>
    
     
