@@ -4,6 +4,7 @@ import BatchUpdate from './components/BatchUpdate';
 import FormHandling from './components/FormHandling';
 import LearnUseState from './components/learnUseState';
 import ObjectState from './components/ObjectState';
+import TwoWayBinding from './components/TwoWayBinding';
 import './index.css'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     <ObjectState/>
     <BatchUpdate/>
     <FormHandling/>
+    <TwoWayBinding/>
     </>
   )
 }
