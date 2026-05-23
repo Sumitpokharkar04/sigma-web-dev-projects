@@ -1,0 +1,10 @@
+.header nav h1 {
+  height: 100px;
+  width: fit-content;
+  background-color: aqua;
+}
+
+.btn{
+    background-color: yellow;
+    color:red;
+}
