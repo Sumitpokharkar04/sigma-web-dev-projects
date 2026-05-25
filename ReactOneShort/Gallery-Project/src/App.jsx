@@ -9,7 +9,7 @@ const App = () => {
 
     setUserData(response.data);
   }
-
+  
     useEffect(function () {
     getData()
   }, [])
