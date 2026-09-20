@@ -3,18 +3,829 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box Model</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DSMS Settings Module: UI/UX Audit & Redesign Report</title>
+    <style>
+        :root {
+            --navy: #0F1729;
+            --purple: #7C3AED;
+            --purple-lt: #EDE9FE;
+            --amber: #D97706;
+            --amber-lt: #FFFBEB;
+            --green: #059669;
+            --green-lt: #F0FDF4;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-500: #6B7280;
+            --gray-100: #F3F4F6;
+            --gray-50: #F9FAFB;
+        }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            color: var(--gray-700);
+            line-height: 1.6;
+            background-color: var(--gray-100);
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .header-stripe {
+            height: 8px;
+            background: linear-gradient(90deg, var(--navy) 0%, var(--purple) 100%);
+            margin: -60px -60px 40px -60px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        h1 {
+            color: var(--navy);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--purple);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .meta-box {
+            background: var(--gray-50);
+            border-left: 4px solid var(--navy);
+            padding: 15px 20px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+        }
+        h2 {
+            color: var(--navy);
+            font-size: 1.8em;
+            margin-top: 50px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--purple);
+        }
+        h3 {
+            color: var(--gray-900);
+            font-size: 1.3em;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 40px 0;
+            font-size: 0.95em;
+        }
+        th {
+            background-color: var(--navy);
+            color: #FFFFFF;
+            text-align: left;
+            padding: 14px;
+            font-weight: 600;
+        }
+        td {
+            border: 1px solid #E5E7EB;
+            padding: 14px;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: var(--gray-50);
+        }
+        .callout {
+            padding: 20px;
+            border-radius: 6px;
+            margin: 30px 0;
+            font-weight: 500;
+        }
+        .callout.info {
+            background-color: var(--purple-lt);
+            border-left: 4px solid var(--purple);
+            color: #4C1D95;
+        }
+        .callout.warning {
+            background-color: var(--amber-lt);
+            border-left: 4px solid var(--amber);
+            color: #92400E;
+        }
+        .callout.success {
+            background-color: var(--green-lt);
+            border-left: 4px solid var(--green);
+            color: #065F46;
+        }
+        .toc {
+            background: var(--gray-50);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc .toc-heading {
+            font-weight: bold;
+            color: var(--purple);
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        @media print {
+            body { background: #FFF; padding: 0; }
+            .container { box-shadow: none; padding: 0; }
+            h2 { page-break-before: always; }
+        }
+    </style>
 </head>
 <body>
-<!--a div can have multiple classes-->
-    <div class="box">
-        I am a box
+
+<div class="container">
+    <div class="header-stripe"></div>
+    
+    <h1>DSMS Settings Module: UI/UX Audit & Redesign Report</h1>
+    <div class="subtitle">A forensic analysis of the current Settings section architecture — identifying every visual, structural, and interaction failure — with a complete redesign blueprint for the development team.</div>
+    
+    <div class="meta-box">
+        <strong>Version:</strong> 1.0 &middot; June 2026<br>
+        <strong>Prepared for:</strong> DSMS Development Team<br>
+        <strong>Stack:</strong> Electron &middot; React &middot; TypeScript &middot; Material UI &middot; SQLite<br>
+        <strong>Screens audited:</strong> 4 (Settings Home, Invoice Config, Backup x2)
     </div>
 
-    <div class="box box1"> i am second box</div>
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li class="toc-heading">Part 1: Audit & Research — Screen-by-Screen Failure Analysis</li>
+            <li>1.1 Settings Home — 8 Critical Failures</li>
+            <li>1.2 Invoice Configuration — 5 Failures</li>
+            <li>1.3 Backup & Recovery — 4 Failures</li>
+            <li>1.4 Benchmark Patterns from Premium Desktop Apps</li>
+            
+            <li class="toc-heading">Part 2: Redesign Strategy — Page-by-Page Blueprint</li>
+            <li>2.1 Core Layout Shift: Card Grid vs. Master-Detail Panel</li>
+            <li>2.2 Settings Home — Left-Panel Row Design</li>
+            <li>2.3 Invoice Configuration — Two-Column + Live Preview</li>
+            <li>2.4 Backup & Recovery — Status-First Design</li>
+            <li>2.5 Micro-Delight: Status Indicators</li>
+            
+            <li class="toc-heading">Part 3: Design System Specifications</li>
+            <li>3.1 Spacing Scale (4px base)</li>
+            <li>3.2 Border Radius Scale</li>
+            <li>3.3 Typography Scale</li>
+            <li>3.4 Elevation: Borders vs. Shadows</li>
+            <li>3.5 Color Usage Rules</li>
+            
+            <li class="toc-heading">Part 4: Technology & Component Stack Evaluation</li>
+            <li>4.1 UI / Headless Library Comparison</li>
+            <li>4.2 Animation Library Evaluation</li>
+            <li>4.3 Icon Set Recommendation</li>
+            
+            <li class="toc-heading">Part 5: Implementation Priority & Developer Handoff</li>
+            <li>5.1 MUI Theme Override Specifications</li>
+            <li>5.2 Per-Page Implementation Specs</li>
+            <li>5.3 Prioritised Implementation Roadmap</li>
+        </ul>
+    </div>
 
-    <div class="box box2">i am third box</div>
+    <h2>PART 1: Audit & Research</h2>
+    <p>A forensic breakdown of every visual, structural, hierarchy, and interaction failure across all four audited screens. Each issue is categorised, explained, and cross-referenced with premium desktop app patterns.</p>
+
+    <h3>1.1 Settings Home — 8 Critical Failures</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Issue</th>
+                <th width="30%">Failure</th>
+                <th width="50%">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>ISSUE 01 &middot; SPACE</strong></td>
+                <td>Cards are 50% empty air</td>
+                <td>Each card is ~170px tall with an icon and 2 lines of text — a 1:3 content-to-whitespace ratio. On a 1280px desktop, operators see only 4 cards before scrolling. Premium desktop apps (Linear, Raycast) target 44px row height for navigation items. The current cards should be compressed to compact 44-52px rows.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 02 &middot; HIERARCHY</strong></td>
+                <td>Everything weighs the same</td>
+                <td>Farm Profile, Invoice Config, Appearance, About — all cards are identical in size, weight, and colour. The eye has no entry point. There is no primary, secondary, or tertiary tier. Premium apps use 3 distinct visual layers: hero status > feature settings > utility links.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 03 &middot; ICONS</strong></td>
+                <td>Icons are decorative noise in purple circles</td>
+                <td>Icons sit in a purple-tinted circle above the title in an ad-hoc arrangement. They are too small for the container, misaligned with text, and the circle wrapping adds visual complexity without adding meaning. Remove the containers. Inline icons with labels at 16px.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 04 &middot; STATUS</strong></td>
+                <td>"Backup Overdue" badge is buried</td>
+                <td>The most urgent status in the entire settings section — a data safety warning — is a small amber tag in the card top-right corner. A business operator focused on another task can easily miss it. It must drive the entire card's visual state (amber border, amber background tint, CTA button inline).</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 05 &middot; SECTION LABELS</strong></td>
+                <td>Description text under labels is redundant</td>
+                <td>FARM SETTINGS &rarr; throwaway description paragraph &rarr; cards. The description adds no information the section label and card descriptions don't already communicate. Removing it saves 40px per section and makes the layout feel more like a professional tool.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 06 &middot; FOOTER</strong></td>
+                <td>Bottom info bar is timid, invisible, and cut off</td>
+                <td>The grey info bar at the very bottom is below the visible viewport fold, uses a tiny info icon that implies it's a tooltip, and is visually identical to a disabled footer. This is important contextual information (Farm vs App data scope) and deserves a proper inline callout treatment.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 07 &middot; NAVIGATION</strong></td>
+                <td>No "you are here" state on detail pages</td>
+                <td>After clicking Farm Profile and landing on the detail page, there is only a back arrow. No breadcrumb, no sub-nav active state, no indication of which settings group the user is in. VS Code, Linear, and Raycast all show persistent sub-navigation with the active item highlighted.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 08 &middot; CONTENT WIDTH</strong></td>
+                <td>Cards waste 40% of available desktop width</td>
+                <td>With a 240px sidebar, the content area is ~1040px wide. Each two-column card has ~480px of available space but uses ~80px for icon+text, leaving 400px of empty card body. Desktop apps should use this horizontal space for current-value displays, status indicators, or secondary metadata.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.2 Invoice Configuration — 5 Failures</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Issue</th>
+                <th width="30%">Failure</th>
+                <th width="50%">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>ISSUE 01 &middot; LAYOUT</strong></td>
+                <td>Single column wastes 60% of horizontal space</td>
+                <td>The Invoice Numbering card is 880px wide but contains only 2 inputs and 1 toggle. All this horizontal space is wasted. The correct pattern (Stripe, Vercel, Linear) is a two-column layout: controls on the left 55%, live context/preview on the right 45%.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 02 &middot; FEEDBACK</strong></td>
+                <td>No live invoice preview exists</td>
+                <td>The operator is configuring how their invoice will look, but receives no visual feedback. The "Next invoice will be: INV-2026-001" pill is the right idea but poorly positioned and too small. A persistent mini-invoice preview panel on the right side would make this page immediately understandable.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 03 &middot; NESTING</strong></td>
+                <td>Card-inside-section creates unnecessary visual depth</td>
+                <td>Section heading &rarr; description &rarr; full-width white card &rarr; form inputs. This double-wrapping adds a visual layer without purpose. The correct pattern is: section heading directly above inputs, no intermediate card container. Fields sit on the page background.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 04 &middot; GST SELECTOR</strong></td>
+                <td>Radio cards are disconnected from consequences</td>
+                <td>The three GST display options are plain labelled radio buttons. The operator has no way to understand what "Show full GST breakdown" vs "Show GST total only" will look like on their actual invoice without previewing a real invoice. Each option needs a 3-line mini invoice illustration.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 05 &middot; SAVE STATE</strong></td>
+                <td>No unsaved changes indicator or save confirmation</td>
+                <td>The Save Changes button in the top-right has no state. After saving, nothing changes on screen. After making changes, nothing indicates that unsaved data exists. VS Code, Linear, Notion, and Figma all show inline unsaved-state indicators and save confirmation feedback.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.3 Backup & Recovery — 4 Failures</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Issue</th>
+                <th width="30%">Failure</th>
+                <th width="50%">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>ISSUE 01 &middot; STATUS CARD</strong></td>
+                <td>Overdue warning lacks visual urgency and primary CTA</td>
+                <td>The amber "Backup overdue" card is the correct idea but weakly executed: narrow, left-border only, tiny warning icon. In a business app, backup failure is a critical event. The status card must span the full content width, be impossible to miss, and contain an inline "Back Up Now" button as the primary CTA.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 02 &middot; PRIMARY ACTION</strong></td>
+                <td>"Backup Now" is buried mid-page as a secondary card</td>
+                <td>The Backup Now action uses an outlined (secondary) purple button inside a mid-page card. Since creating a backup is the primary action on this page, it should be a filled primary button prominently placed — ideally inside the status banner at the top, not a separate card below.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 03 &middot; DANGER ZONE</strong></td>
+                <td>Danger zone is underdesigned and visually quiet</td>
+                <td>The danger zone uses a red card border and red label — structurally correct — but the Reset Settings button is a ghost/outline style that looks secondary. Vercel, GitHub, Railway, and Render all use a full red-tinted background region (#FFF0F0) for the entire danger zone. The destructive button must be visually distinct from every other button on the page.</td>
+            </tr>
+            <tr>
+                <td><strong>ISSUE 04 &middot; CONSISTENCY</strong></td>
+                <td>Frequency selector contradicts Invoice Config radio style</td>
+                <td>Daily / Every 3 Days / Weekly uses a pill-style segmented group. Invoice Config uses full-width radio cards. These are the same type of single-choice selection, expressed with two completely different visual patterns on two settings pages within the same module. Pick one pattern and apply it everywhere.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.4 Benchmark Patterns from Premium Desktop Apps</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">App</th>
+                <th width="40%">Pattern Observed</th>
+                <th width="40%">Apply to DSMS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Linear</strong></td>
+                <td>Settings uses a compact left sub-nav list (20-30px rows). Content area uses label-left + control-right on same row.</td>
+                <td>Replace card grid with master-detail panel. Two-column label+control layout on all detail pages.</td>
+            </tr>
+            <tr>
+                <td><strong>Stripe</strong></td>
+                <td>Setting rows full-width with label, description, inline action. Status dots (green/amber) next to labels.</td>
+                <td>Inline value badges on every settings row. Green/amber dot on Farm Profile and Backup rows.</td>
+            </tr>
+            <tr>
+                <td><strong>Raycast</strong></td>
+                <td>Two-column master-detail: compact icon+label list left, detail right. Right panel updates in place. 36-40px row height.</td>
+                <td>Persistent left settings panel inside content area. No full-page navigation for settings detail views.</td>
+            </tr>
+            <tr>
+                <td><strong>Vercel</strong></td>
+                <td>Danger zones: red-tinted background #FFF5F5 for entire section. Destructive buttons red-filled inside zone.</td>
+                <td>Apply directly to Backup danger zone. Full-width red background container, not just a card border.</td>
+            </tr>
+            <tr>
+                <td><strong>VS Code</strong></td>
+                <td>Modified settings show a blue dot. Current value visible inline. Settings rows — no card wrappers.</td>
+                <td>Show current values as inline badges on settings home rows. No card containers on detail pages.</td>
+            </tr>
+            <tr>
+                <td><strong>Figma</strong></td>
+                <td>Form fields tightly packed at 32px height, 8px gap. 11px caps labels. Helper text 11px muted. No card wrappers.</td>
+                <td>Apply to all DSMS detail pages. Remove card-inside-section pattern.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>PART 2: Redesign Strategy</h2>
+
+    <h3>2.1 Core Layout Shift: Card Grid &rarr; Master-Detail Panel</h3>
+    <div class="callout info">
+        &rarr; <strong>The single highest-leverage improvement:</strong> replace the card grid with a persistent master-detail panel layout. Left panel (240px): compact row list with all section names, icons, and current-value badges. Right panel (flex): renders the active section in place. No full-page navigation. This is how Linear, Raycast, macOS System Settings, VS Code, and Figma all implement settings.
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Screen</th>
+                <th width="40%">BEFORE (Current)</th>
+                <th width="40%">AFTER (Redesign)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Settings Home</strong></td>
+                <td>2-column card grid. 170px cards. No values visible. Must click in to see current state. 6+ cards before scroll.</td>
+                <td>Left panel: 44px compact rows with icon, label, current-value badge. Right panel: active section renders in place. All current values visible at a glance.</td>
+            </tr>
+            <tr>
+                <td><strong>Invoice Config</strong></td>
+                <td>Single full-width column. Card-inside-section nesting. No preview. No save state.</td>
+                <td>Left 55%: flat form fields on page background. Right 45%: sticky live invoice preview. Unsaved changes sticky bar.</td>
+            </tr>
+            <tr>
+                <td><strong>Backup Page</strong></td>
+                <td>Amber badge in card corner. Backup Now mid-page outlined button. Simple red border on danger zone.</td>
+                <td>Full-width 3-state status banner with inline CTA. Danger zone: full red-tinted region. Red-filled destructive button.</td>
+            </tr>
+            <tr>
+                <td><strong>Appearance</strong></td>
+                <td>Separate sections with card wrappers per setting group. No live preview.</td>
+                <td>Setting-row pattern: label left + control inline right. 80px live preview strip updates in real-time.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2.2 Settings Home — Left Panel Row Anatomy</h3>
+    <p>Each row in the left settings panel: height 44px, padding 0 16px, flex row, align-items center. Left: Lucide icon 16px text-tertiary + 8px gap + label 14px/500 text-primary. Right: conditional value badge + chevron-right 14px text-tertiary. Hover state: background purple-50. Active state: background purple-50 + border-left 3px purple-600 + label color purple-700. Value badges: Farm Profile = green dot (complete) or amber dot (missing fields). Invoice Config = monospace pill "INV-2026-". Backup = "12d ago" in amber or "Today" in green.</p>
+
+    <h3>2.3 Micro-Delight Status Indicators</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="25%">Indicator</th>
+                <th width="25%">Location</th>
+                <th width="25%">States</th>
+                <th width="25%">Implementation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Profile completeness dot</strong></td>
+                <td>Farm Profile row, left of label</td>
+                <td>Green: all required fields filled. Amber: missing fields.</td>
+                <td>8px circle, CSS :before pseudo-element or Lucide Circle icon</td>
+            </tr>
+            <tr>
+                <td><strong>Backup health badge</strong></td>
+                <td>Backup row, right side</td>
+                <td>Green "Today" / Green "3d ago" / Amber "12d ago" / Red "Never"</td>
+                <td>Calculate days diff from last backup timestamp. Conditional className.</td>
+            </tr>
+            <tr>
+                <td><strong>Invoice prefix pill</strong></td>
+                <td>Invoice Config row, right side</td>
+                <td>Shows current prefix in monospace: "INV-2026-"</td>
+                <td>Read from config state. Render as MUI Chip with monospace font.</td>
+            </tr>
+            <tr>
+                <td><strong>Unsaved changes bar</strong></td>
+                <td>Sticky bottom of content panel</td>
+                <td>Hidden when clean. Slides up when isDirty. Dismissed on save.</td>
+                <td>React Hook Form formState.isDirty + Framer Motion layoutId.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>PART 3: Design System Specifications</h2>
+
+    <h3>3.1 Spacing Scale (4px base unit)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="15%">Token</th>
+                <th width="15%">Value</th>
+                <th width="70%">Primary Use Cases</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>space-1</strong></td><td>4px</td><td>Between icon and label on same row. Between badge and its text.</td></tr>
+            <tr><td><strong>space-2</strong></td><td>8px</td><td>Between helper text and next field. Between inline controls. Between section sub-items.</td></tr>
+            <tr><td><strong>space-3</strong></td><td>12px</td><td>Between section heading and first field. Between compact cards. Internal card horizontal padding.</td></tr>
+            <tr><td><strong>space-4</strong></td><td>16px</td><td>Between major form fields. Between setting rows in a list. Default internal card padding.</td></tr>
+            <tr><td><strong>space-5</strong></td><td>24px</td><td>Between form sections within one page (Invoice Numbering to GST Display).</td></tr>
+            <tr><td><strong>space-6</strong></td><td>32px</td><td>Page inset padding. Between major page sections (Farm Settings / App Settings divider).</td></tr>
+            <tr><td><strong>space-7</strong></td><td>48px</td><td>Between page header and first content section. Major vertical rhythm breaks only.</td></tr>
+        </tbody>
+    </table>
     
+    <div class="callout warning">
+        <strong>! Note:</strong> Never use arbitrary values: 20px, 15px, 35px, 22px. Every spacing value must come from this scale. The current UI contains at least 6 non-scale spacing values visible across the 4 audited screens.
+    </div>
+
+    <h3>3.2 Border Radius Scale</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="15%">Token</th>
+                <th width="15%">Value</th>
+                <th width="40%">Use For</th>
+                <th width="30%">Never Use For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>radius-sm</strong></td><td>4px</td><td>Inline badges, status chips, monospace code tags (INV-2026-001)</td><td>Cards, modals, buttons</td></tr>
+            <tr><td><strong>radius-md</strong></td><td>6px</td><td>Buttons (all sizes), form inputs, select dropdowns, segmented controls</td><td>Page-level cards</td></tr>
+            <tr><td><strong>radius-lg</strong></td><td>8px</td><td>Setting cards, panel containers, modal dialogs, master-detail left panel</td><td>Inline elements</td></tr>
+            <tr><td><strong>radius-xl</strong></td><td>12px</td><td>Main content area container. Large overlay panels.</td><td>Default card style</td></tr>
+            <tr><td><strong>radius-full</strong></td><td>9999px</td><td>Toggle switches, avatar circles, loading spinners</td><td>Cards, buttons, inputs</td></tr>
+        </tbody>
+    </table>
+
+    <h3>3.3 Typography Scale</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="15%">Role</th>
+                <th width="10%">Size</th>
+                <th width="10%">Weight</th>
+                <th width="15%">Color Token</th>
+                <th width="50%">Use</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>page-title</strong></td><td>22px</td><td>600</td><td>text-primary</td><td>Settings, Invoice Configuration, Backup page headings</td></tr>
+            <tr><td><strong>page-subtitle</strong></td><td>13px</td><td>400</td><td>text-secondary</td><td>One-line descriptor under page title. Max 80 chars.</td></tr>
+            <tr><td><strong>section-label</strong></td><td>11px</td><td>600</td><td>text-tertiary</td><td>FARM SETTINGS, INVOICE NUMBERING. Always uppercase + letter-spacing 0.07em.</td></tr>
+            <tr><td><strong>card-title</strong></td><td>14px</td><td>500</td><td>text-primary</td><td>Row labels in settings list. Field group headings on detail pages.</td></tr>
+            <tr><td><strong>body</strong></td><td>13px</td><td>400</td><td>text-secondary</td><td>Card descriptions, form helper text, row descriptions.</td></tr>
+            <tr><td><strong>caption</strong></td><td>11px</td><td>400</td><td>text-tertiary</td><td>Character counters, timestamps, field helper text below inputs.</td></tr>
+            <tr><td><strong>mono</strong></td><td>12px</td><td>500</td><td>text-primary</td><td>Invoice numbers, GST numbers, file paths. font-family: monospace.</td></tr>
+            <tr><td><strong>badge</strong></td><td>11px</td><td>500</td><td>semantic</td><td>Status badges: Backup Overdue, v1.0.0, Dark theme pill.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout warning">
+        <strong>! Note:</strong> Drop the current 28px page title immediately. 22px is the correct desktop app title size. 28px reads as a marketing landing page, not application UI. VS Code uses 20px, Linear uses 18px, Raycast uses 16px.
+    </div>
+
+    <h3>3.4 Elevation: Borders vs. Shadows</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Layer</th>
+                <th width="35%">Visual Treatment</th>
+                <th width="45%">When To Use</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Base / flat</strong></td>
+                <td>No border, no shadow. Background: page bg (#F8F9FA).</td>
+                <td>Section headings, form fields sitting directly on the page (Figma/Linear pattern).</td>
+            </tr>
+            <tr>
+                <td><strong>Raised / card</strong></td>
+                <td>1px border #E5E7EB. No shadow. Background: white.</td>
+                <td>Setting cards, invoice preview panel, master-detail left panel.</td>
+            </tr>
+            <tr>
+                <td><strong>Floating / modal</strong></td>
+                <td>1px border + box-shadow: 0 4px 16px rgba(0,0,0,0.08).</td>
+                <td>Confirmation dialogs (Restore Backup confirm), the unsaved changes sticky bar.</td>
+            </tr>
+            <tr>
+                <td><strong>Status banner</strong></td>
+                <td>Left border 4px solid (semantic color). Background: semantic-50.</td>
+                <td>Backup status banner, overdue warning, success callouts.</td>
+            </tr>
+            <tr>
+                <td><strong>Danger zone</strong></td>
+                <td>1px border #FCA5A5. Background: #FFF5F5. No shadow.</td>
+                <td>Reset Settings section. Color communicates danger; no shadow needed.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout success">
+        <strong>&check; Golden Rule:</strong> Use borders to contain, shadows to lift. In a desktop settings UI, almost nothing should float. Shadows are reserved for genuinely floating elements: modals, dropdowns, the sticky unsaved-changes bar.
+    </div>
+
+    <h3>3.5 Color Usage Rules</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Token</th>
+                <th width="15%">Hex</th>
+                <th width="65%">Strict Use — Do Not Deviate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>purple-600</strong></td><td>#7C3AED</td><td>Primary action buttons ONLY. Active nav item bg. Toggle-on state. Selected radio border.</td></tr>
+            <tr><td><strong>purple-50</strong></td><td>#F5F3FF</td><td>Hover state on interactive rows/cards. Selected radio card bg. Never as page background.</td></tr>
+            <tr><td><strong>gray-50</strong></td><td>#F8F9FA</td><td>Page/content area background. Section label background. Never for card backgrounds.</td></tr>
+            <tr><td><strong>gray-100</strong></td><td>#E5E7EB</td><td>Card borders. Table row dividers. Section divider lines. Default input border.</td></tr>
+            <tr><td><strong>amber-600</strong></td><td>#D97706</td><td>Backup overdue status. "12 days ago" text. Amber dot indicators. Never as a background fill.</td></tr>
+            <tr><td><strong>red-600</strong></td><td>#DC2626</td><td>Danger zone label text. Destructive button border/text in normal state. Danger bg only inside zone.</td></tr>
+            <tr><td><strong>green-600</strong></td><td>#059669</td><td>Success toast. Backup protected status. Profile completeness green dot. Never as card bg.</td></tr>
+        </tbody>
+    </table>
+
+    <h2>PART 4: Technology & Component Stack</h2>
+
+    <h3>4.1 UI / Headless Library Evaluation</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Library</th>
+                <th width="15%">Verdict</th>
+                <th width="65%">Rationale & Usage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Radix UI Primitives</strong></td>
+                <td><strong>USE</strong></td>
+                <td>Headless, unstyled primitives for Dialog, DropdownMenu, Select, Switch, RadioGroup. Zero conflict with MUI. Use for the master-detail panel, backup confirmation dialog, and GST radio group where MUI's opinionated styling conflicts with the redesign.</td>
+            </tr>
+            <tr>
+                <td><strong>React Hook Form</strong></td>
+                <td><strong>USE</strong></td>
+                <td>Critical for Farm Profile and Invoice Config. Gives dirty state detection (powers unsaved changes bar), field-level validation, and optimistic save patterns. Current MUI+useState approach is the reason unsaved-state feedback is missing.</td>
+            </tr>
+            <tr>
+                <td><strong>shadcn/ui</strong></td>
+                <td><strong>ADAPT</strong></td>
+                <td>Cannot use the Tailwind layer in MUI context, but individual component source files (RadioGroup, SegmentedControl) can be copied and adapted for the GST selector and frequency picker.</td>
+            </tr>
+            <tr>
+                <td><strong>Mantine</strong></td>
+                <td><strong>SKIP</strong></td>
+                <td>Excellent library but introduces a competing design system. Reconciling Mantine spacing/color/radius tokens with MUI theme takes weeks. Never mix two full design systems in the same app.</td>
+            </tr>
+            <tr>
+                <td><strong>MUI X / Pro</strong></td>
+                <td><strong>FUTURE</strong></td>
+                <td>DateTimePicker useful for backup time selector. DataGrid Pro valuable for future table-heavy pages. Not required for the Settings module specifically.</td>
+            </tr>
+            <tr>
+                <td><strong>Ark UI</strong></td>
+                <td><strong>SKIP</strong></td>
+                <td>State-machine based headless components. Powerful but heavy for a settings module. Radix covers the same primitives with a simpler API.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.2 Animation Library Evaluation</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Library</th>
+                <th width="20%">Verdict</th>
+                <th width="60%">Specific Use in DSMS Settings</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Framer Motion</strong></td>
+                <td><strong>USE — selectively</strong></td>
+                <td>Use for: (1) unsaved-changes sticky bar sliding up from bottom, (2) status banner transitioning between states (green to amber), (3) master-detail right panel cross-fading on section switch. Do NOT animate everything — desktop apps feel premium through restraint.</td>
+            </tr>
+            <tr>
+                <td><strong>AutoAnimate</strong></td>
+                <td><strong>USE</strong></td>
+                <td>One-line addition: useAutoAnimate(ref). Perfect for auto-backup sub-fields appearing/disappearing when the toggle is switched. Zero configuration, production-safe, negligible Electron bundle cost.</td>
+            </tr>
+            <tr>
+                <td><strong>Motion One</strong></td>
+                <td><strong>SKIP</strong></td>
+                <td>Web Animations API wrapper. Better for vanilla JS contexts. Framer Motion's declarative API is far better suited to React's component model for the interactions described above.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout warning">
+        <strong>! Note:</strong> Animation budget for settings pages: maximum 3 animated interactions total. Unsaved changes bar, status banner state change, panel section transition. Everything else: instant or CSS transition 150ms ease only.
+    </div>
+
+    <h3>4.3 Icon Set Recommendation</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">Icon Set</th>
+                <th width="15%">Verdict</th>
+                <th width="65%">Rationale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>MUI Icons (current)</strong></td>
+                <td><strong>REPLACE</strong></td>
+                <td>The root cause of the icon quality problem. MUI Material Icons are designed for Android mobile touch targets at 48px. At desktop density (16-18px), they appear too heavy-stroked and "rounded consumer." They read as an Android app, not a professional desktop business tool.</td>
+            </tr>
+            <tr>
+                <td><strong>Lucide React</strong></td>
+                <td><strong>PRIMARY</strong></td>
+                <td>1400+ icons. Thin 1.5px stroke. Consistent optical sizing. Tree-shakeable. Used by Linear, Vercel, Notion, and GitHub. Direct replacement: import { Store, FileText, Palette, Database } from "lucide-react". Target sizes: 16px inline, 18px for row icons, 20px max decorative.</td>
+            </tr>
+            <tr>
+                <td><strong>Phosphor Icons</strong></td>
+                <td><strong>ALTERNATIVE</strong></td>
+                <td>6 weights per icon (thin to fill). Slightly more expressive than Lucide. Consider if you need filled variants for active nav states. Do not mix with Lucide — using both creates visual inconsistency.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>PART 5: Implementation Priority & Developer Handoff</h2>
+
+    <h3>5.1 MUI Theme Override Specifications (theme.ts)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="25%">Component</th>
+                <th width="25%">Property</th>
+                <th width="50%">Override Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>MuiCard</strong></td><td>styleOverrides.root</td><td>borderRadius: 8, boxShadow: "none", border: "1px solid #E5E7EB"</td></tr>
+            <tr><td><strong>MuiButton</strong></td><td>styleOverrides.root</td><td>borderRadius: 6, textTransform: "none", fontWeight: 500, fontSize: 13</td></tr>
+            <tr><td><strong>MuiInputBase</strong></td><td>styleOverrides.root</td><td>borderRadius: 6, fontSize: 13, height: 36</td></tr>
+            <tr><td><strong>MuiSwitch</strong></td><td>replacement</td><td>Use Radix Switch instead. MUI Switch is designed for mobile density.</td></tr>
+            <tr><td><strong>MuiTypography h4</strong></td><td>fontSize / fontWeight</td><td>22px / 600. This is your page title variant.</td></tr>
+            <tr><td><strong>MuiChip</strong></td><td>styleOverrides.root</td><td>borderRadius: 4, height: 20, fontSize: 11, fontWeight: 500 — for status badges only.</td></tr>
+            <tr><td><strong>MuiRadio</strong></td><td>replacement</td><td>Use Radix RadioGroup.Item with custom CSS. MUI Radio adds excessive mobile padding.</td></tr>
+            <tr><td><strong>palette.primary</strong></td><td>main / dark</td><td>#7C3AED / #6D28D9</td></tr>
+            <tr><td><strong>palette.background</strong></td><td>default / paper</td><td>#F8F9FA / #FFFFFF</td></tr>
+        </tbody>
+    </table>
+
+    <h3>5.2 Prioritised Implementation Roadmap</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="15%">Priority</th>
+                <th width="45%">Task</th>
+                <th width="10%">Effort</th>
+                <th width="30%">Impact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>P0 &middot; Day 1</strong></td>
+                <td>Replace MUI Icons with Lucide React across all settings pages</td>
+                <td>2 hrs</td>
+                <td>CRITICAL — Instant visual quality lift. Single highest-impact change per hour invested.</td>
+            </tr>
+            <tr>
+                <td><strong>P0 &middot; Day 1</strong></td>
+                <td>Apply spacing scale — audit and fix all non-scale spacing values</td>
+                <td>3 hrs</td>
+                <td>CRITICAL — Makes entire UI feel intentional and consistent immediately.</td>
+            </tr>
+            <tr>
+                <td><strong>P1 &middot; Week 1</strong></td>
+                <td>Build master-detail panel layout for Settings home</td>
+                <td>1 day</td>
+                <td>HIGH — Transforms page from dead card list to live control center.</td>
+            </tr>
+            <tr>
+                <td><strong>P1 &middot; Week 1</strong></td>
+                <td>Add inline value badges to every settings row</td>
+                <td>4 hrs</td>
+                <td>HIGH — Eliminates need to click in just to see current state.</td>
+            </tr>
+            <tr>
+                <td><strong>P1 &middot; Week 1</strong></td>
+                <td>Install React Hook Form on Farm Profile and Invoice Config</td>
+                <td>4 hrs</td>
+                <td>HIGH — Foundation for unsaved state detection.</td>
+            </tr>
+            <tr>
+                <td><strong>P2 &middot; Week 2</strong></td>
+                <td>Three-state backup status banner (green/amber/red)</td>
+                <td>4 hrs</td>
+                <td>HIGH — Turns critical data safety status into a proactive indicator.</td>
+            </tr>
+            <tr>
+                <td><strong>P2 &middot; Week 2</strong></td>
+                <td>Unsaved changes sticky bar with Framer Motion slide-up</td>
+                <td>4 hrs</td>
+                <td>MEDIUM — Solves most common user error: closing page without saving.</td>
+            </tr>
+            <tr>
+                <td><strong>P2 &middot; Week 2</strong></td>
+                <td>GST radio cards with mini invoice line-item previews</td>
+                <td>6 hrs</td>
+                <td>MEDIUM — Makes abstract setting tangible and understandable.</td>
+            </tr>
+            <tr>
+                <td><strong>P3 &middot; Week 3</strong></td>
+                <td>Danger zone full-width red section with Radix confirmation dialog</td>
+                <td>4 hrs</td>
+                <td>MEDIUM — Safety-critical UX improvement for destructive actions.</td>
+            </tr>
+            <tr>
+                <td><strong>P3 &middot; Week 3</strong></td>
+                <td>AutoAnimate on auto-backup toggle reveal/hide</td>
+                <td>1 hr</td>
+                <td>POLISH — Micro-delight, very low effort.</td>
+            </tr>
+            <tr>
+                <td><strong>P4 &middot; Week 4</strong></td>
+                <td>Invoice Config two-column layout + live preview panel</td>
+                <td>1 day</td>
+                <td>HIGH — Premium UX but higher development effort.</td>
+            </tr>
+            <tr>
+                <td><strong>P4 &middot; Week 4</strong></td>
+                <td>Farm Profile completeness dot indicator</td>
+                <td>2 hrs</td>
+                <td>POLISH — Proactive data quality indicator.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout success">
+        <strong>&check; Recommendation:</strong> Start with P0 tasks only. Replacing icons and fixing spacing takes less than a single working day and immediately elevates the perceived quality of the entire module. Stakeholders and operators will notice the difference before a single layout change is made.
+    </div>
+
+    <hr style="margin: 50px 0; border: 0; border-top: 1px solid #E5E7EB;">
+
+    <h2>AUDIT SCORECARD SUMMARY</h2>
+    <p><em>Current State vs. Target State</em></p>
+    <table>
+        <thead>
+            <tr>
+                <th width="25%">Dimension</th>
+                <th width="15%">Current Score</th>
+                <th width="15%">Target Score</th>
+                <th width="45%">Primary Fix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Information Density</strong></td><td>2 / 10</td><td><strong>8 / 10</strong></td><td>Master-detail panel + value badges</td></tr>
+            <tr><td><strong>Visual Hierarchy</strong></td><td>3 / 10</td><td><strong>9 / 10</strong></td><td>Typography scale + layout tiers</td></tr>
+            <tr><td><strong>Icon Quality</strong></td><td>2 / 10</td><td><strong>9 / 10</strong></td><td>Replace MUI Icons with Lucide</td></tr>
+            <tr><td><strong>Form UX</strong></td><td>4 / 10</td><td><strong>9 / 10</strong></td><td>React Hook Form + unsaved state bar</td></tr>
+            <tr><td><strong>Status Communication</strong></td><td>3 / 10</td><td><strong>9 / 10</strong></td><td>Three-state backup banner + row badges</td></tr>
+            <tr><td><strong>Spacing Consistency</strong></td><td>3 / 10</td><td><strong>9 / 10</strong></td><td>4px base spacing scale, applied globally</td></tr>
+            <tr><td><strong>Interaction Feedback</strong></td><td>2 / 10</td><td><strong>8 / 10</strong></td><td>Save confirmation + dirty state indicators</td></tr>
+            <tr><td><strong>Desktop Optimisation</strong></td><td>3 / 10</td><td><strong>9 / 10</strong></td><td>Compact rows + two-column layouts</td></tr>
+            <tr><td><strong>Design System Coherence</strong></td><td>2 / 10</td><td><strong>8 / 10</strong></td><td>MUI theme overrides + Radix primitives</td></tr>
+            <tr><td style="background:#0F1729; color:white;"><strong>Overall</strong></td><td style="background:#F9FAFB;"><strong>2.7 / 10</strong></td><td style="background:#F0FDF4; color:#065F46;"><strong>8.8 / 10</strong></td><td>Full implementation of this report</td></tr>
+        </tbody>
+    </table>
+
+    <p style="font-size: 0.85em; color: #6B7280; text-align: center; margin-top: 40px;">
+        This report was generated as part of the DSMS Settings module audit and redesign initiative. All recommendations maintain 100% feature parity with the current implementation — no functionality is removed or changed, only visual quality and interaction design are elevated.
+    </p>
+
+</div>
+
 </body>
 </html>

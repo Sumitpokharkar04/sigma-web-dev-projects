@@ -19,6 +19,13 @@
   },
   "homepage": "https://github.com/Sumitpokharkar04/sigma-web-dev-projects#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "axios": "^1.16.1",
+    "express": "^5.2.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "vite": "^8.0.13"
   }
 }
