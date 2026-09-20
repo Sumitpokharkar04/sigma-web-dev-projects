@@ -1,0 +1,29 @@
+CRUD
+↓
+JWT Auth + bcrypt + protected routes
+↓
+Validation with Joi/Zod
+↓
+Security basics: helmet, cors, rate limit, env
+↓
+File upload: Multer + Cloudinary
+↓
+Google OAuth2
+↓
+Email: Nodemailer / AWS SES
+↓
+SQL basics
+↓
+PostgreSQL
+↓
+Database design
+↓
+Cron jobs
+↓
+WebSockets
+↓
+Payment integration
+↓
+Docker
+↓
+Operating system basics
