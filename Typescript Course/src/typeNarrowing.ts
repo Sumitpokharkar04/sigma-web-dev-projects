@@ -121,3 +121,31 @@ if (isStringArray(value)) {
     // ✅ Here TypeScript narrows value to string[]
     console.log(value.join(", "));
 }
+
+
+//never keyword or type comes when all the types have been used
+
+type role = "user" | "admin"
+
+function redirectTOdashboard(Role:role):void{
+
+    if(Role==="user")
+    {
+        console.log("redirecting to the user portal");
+    }
+
+    if(Role==="admin")
+    {
+        console.log("redirecting to the admin portal");
+    }
+}
+
+//While both void and never represent the absence of a value, they mean completely different things to TypeScript:void means a function finishes its job
+//  but returns nothing useful (it returns undefined).never means a function never finishes running at all, or a situation is physically impossible to reach.
+
+//for example
+
+function neverReturnsAnything():never
+{
+    while(true){}
+}

@@ -140,3 +140,42 @@ Keywords = grammar of TypeScript (control flow, type system, declarations).
 Built‑in functions = toolbox for working with arrays, strings, objects, and numbers.
 
 is is special: it’s not a return type, but a type guard that helps the compiler narrow types.
+
+
+1. any (The Escape Hatch)The any type completely disables TypeScript's safety features. It allows a variable to hold literally any data type, and lets you access any property or method on it without checking if it exists. Using any can lead to runtime crashes.
+
+    typescript
+
+    let dynamicValue: any = "Hello";
+    dynamicValue = 42; // Allowed
+    dynamicValue.toUpperCase(); // Compiles perfectly, but crashes at runtime because 42 is a number!
+    Use code with caution.
+
+2. unknown (The Safe Alternative to any)Like any, you can assign any value to an unknown variable. However, TypeScript will not let you interact with it until you explicitly check or prove what type it actually is (type narrowing).
+
+    typescript
+
+    let secureValue: unknown = "Hello";
+
+    // secureValue.toUpperCase(); // ❌ Compiler Error: Object is of type 'unknown'.
+
+    if (typeof secureValue === "string") {
+        secureValue.toUpperCase(); //  Allowed! TypeScript now knows it's a string.
+    }
+    Use code with caution.
+
+3. void (Function Returns Nothing)void is used almost exclusively as a function return type. It means the function executes its logic (like logging to a console or saving to a database) but doesn't pass back a usable value.
+
+    function logMessage(message: string): void {
+        console.log(message);
+        // No return statement here
+    }
+    Use code with caution.
+
+
+4. undefined (The Primitive Value)undefined is an actual value in JavaScript/TypeScript. In TypeScript, it is usually used to mark object properties that are optional or variables that might not have a value yet.
+
+    let user: { name: string; age?: number }; // age can be a number or undefined
+
+    let trackingId: undefined = undefined; // Can only hold the value 'undefined'
+    Use code with caution.
