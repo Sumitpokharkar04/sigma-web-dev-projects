@@ -4,8 +4,11 @@ import { title } from "process";
 import React from "react";  
 
 const events = [
-  {image : '/images/event1.png', title:'Event1'},
-  {image: '/images/event2.png' , title:'Event2'}
+  {image : '/images/event1.png', title:'Event1',slug:'event-1',location:'location-1'
+    ,date:'date-1',time:'time1'
+  },
+  {image: '/images/event2.png' , title:'Event2',slug:'event-1',location:'location-1'
+    ,date:'date-1',time:'time1'}
 ]
 
 const page = () =>{
