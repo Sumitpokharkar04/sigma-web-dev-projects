@@ -1,8 +1,22 @@
 'use client'
+
+import posthog from "posthog-js"
+
+const isPostHogConfigured = Boolean(
+  process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+  process.env.NEXT_PUBLIC_POSTHOG_HOST
+)
+
 const Explorebtn = () => {
   return (
     <button type="button" id="explore-btn" className="mt-7 mx-auto" 
     onClick = {() => {
+      if (isPostHogConfigured) {
+        posthog.capture("events_explored")
+        posthog.logger.info("events exploration requested", {
+          surface: "landing_page",
+        })
+      }
       console.log("Navigating to events");
 
       }}>
