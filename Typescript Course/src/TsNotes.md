@@ -1,181 +1,189 @@
-📘 TypeScript Notes
-1. Keywords in TypeScript
-🔹 Type System Keywords
+# 📘 TypeScript Notes
 
-1)  is → Used in type guards.
-    Tells the compiler: if this function returns true, then the parameter is of a certain type.
+## 1. Keywords in TypeScript
 
-    ts
-    function isStringArray(arr: unknown): arr is string[] {
-        return Array.isArray(arr) && arr.every(x => typeof x === "string");
-    }
+### 🔹 Type System Keywords
 
-2)  as → Type assertion.
-    You tell the compiler to treat a value as a specific type.
+1. **`is`** → Used in type guards.
 
-    ts
-    let value: unknown = "hello";
-    let strLength = (value as string).length;
-    typeof → Runtime type check.
-    Returns a string describing the type of a value.
+   Tells the compiler: if this function returns true, then the parameter is of a certain type.
 
-    ts
-    typeof "abc"; // "string"
+   ```ts
+   function isStringArray(arr: unknown): arr is string[] {
+       return Array.isArray(arr) && arr.every(x => typeof x === "string");
+   }
+   ```
 
-3)  instanceof → Check if an object is created from a specific class.
+2. **`as`** → Type assertion.
 
-    ts
-    if (obj instanceof Date) { ... }
-    keyof → Get the keys of a type.
+   You tell the compiler to treat a value as a specific type.
 
-ts
-type Person = { name: string; age: number };
-type Keys = keyof Person; // "name" | "age"
+   ```ts
+   let value: unknown = "hello";
+   let strLength = (value as string).length;
+   ```
 
-4)  in → Check if a property exists in an object.
+   **`typeof`** → Runtime type check.
 
-ts
-if ("name" in person) { ... }
+   Returns a string describing the type of a value.
 
+   ```ts
+   typeof "abc"; // "string"
+   ```
 
-5)  extends → Used in class inheritance and generics.
+3. **`instanceof`** → Check if an object is created from a specific class.
 
-ts
-class Dog extends Animal { }
+   ```ts
+   if (obj instanceof Date) { ... }
+   ```
 
-6)  implements → Enforce that a class follows an interface.
+   **`keyof`** → Get the keys of a type.
 
-ts
-interface Flyable { fly(): void }
-class Bird implements Flyable { fly() { ... } }
+   ```ts
+   type Person = { name: string; age: number };
+   type Keys = keyof Person; // "name" | "age"
+   ```
 
-7)  readonly → Makes a property immutable.
+4. **`in`** → Check if a property exists in an object.
 
-ts
-readonly id: number;
+   ```ts
+   if ("name" in person) { ... }
+   ```
 
+5. **`extends`** → Used in class inheritance and generics.
 
-#   Special types:
+   ```ts
+   class Dog extends Animal { }
+   ```
 
-1) unknown → safer version of any (must check before using).
+6. **`implements`** → Enforce that a class follows an interface.
 
-2) any → disables type checking.
+   ```ts
+   interface Flyable { fly(): void }
+   class Bird implements Flyable { fly() { ... } }
+   ```
 
-3) never → represents values that never occur (e.g., a function that always throws).
+7. **`readonly`** → Makes a property immutable.
 
-4) void → function returns nothing.
+   ```ts
+   readonly id: number;
+   ```
 
-2. Control Flow Keywords
-if, else, switch, case, break, continue → standard conditional logic.
+### Special types
 
-for, while, do → loops.
+1. **`unknown`** → safer version of any (must check before using).
+2. **`any`** → disables type checking.
+3. **`never`** → represents values that never occur (e.g., a function that always throws).
+4. **`void`** → function returns nothing.
 
-return, throw, try, catch, finally → function exits and error handling.
+## 2. Control Flow Keywords
 
-3. Declarations
-let → block-scoped variable.
+- `if`, `else`, `switch`, `case`, `break`, `continue` → standard conditional logic.
+- `for`, `while`, `do` → loops.
+- `return`, `throw`, `try`, `catch`, `finally` → function exits and error handling.
 
-const → block-scoped constant.
+## 3. Declarations
 
-var → function-scoped (avoid using).
+- `let` → block-scoped variable.
+- `const` → block-scoped constant.
+- `var` → function-scoped (avoid using).
+- `function`, `class`, `interface`, `enum`, `type` → ways to define structures.
+- `public`, `private`, `protected` → access modifiers for class members.
 
-function, class, interface, enum, type → ways to define structures.
+## 4. Built‑in Functions / Methods
 
-public, private, protected → access modifiers for class members.
+### 🔹 Type Checks
 
-4. Built‑in Functions / Methods
-🔹 Type Checks
-Array.isArray(value) → true if value is an array.
+- `Array.isArray(value)` → true if value is an array.
+- `typeof value` → returns `"string"`, `"number"`, etc.
+- `instanceof` → check if object is instance of a class.
 
-typeof value → returns "string", "number", etc.
+### 🔹 Array Methods
 
-instanceof → check if object is instance of a class.
+- `.map()` → transform each element.
+- `.filter()` → keep elements that match condition.
+- `.reduce()` → combine into one value.
+- `.forEach()` → run a function for each element.
+- `.every()` → true if all elements match condition.
+- `.some()` → true if at least one matches.
+- `.find()` → first matching element.
+- `.includes()` → check if element exists.
 
-🔹 Array Methods
-.map() → transform each element.
+### 🔹 String Methods
 
-.filter() → keep elements that match condition.
+- `.toUpperCase()`, `.toLowerCase()` → change case.
+- `.trim()` → remove spaces.
+- `.split()` → break into array.
+- `.includes()` → check substring.
+- `.replace()` → replace part of string.
 
-.reduce() → combine into one value.
+### 🔹 Object Utilities
 
-.forEach() → run a function for each element.
+- `Object.keys(obj)` → property names.
+- `Object.values(obj)` → property values.
+- `Object.entries(obj)` → key/value pairs.
 
-.every() → true if all elements match condition.
+### 🔹 Math Utilities
 
-.some() → true if at least one matches.
+- `Math.max()`, `Math.min()` → largest/smallest.
+- `Math.floor()`, `Math.ceil()`, `Math.round()` → rounding.
+- `Math.random()` → random number between 0 and 1.
 
-.find() → first matching element.
+### ✅ Summary
 
-.includes() → check if element exists.
+- Keywords = grammar of TypeScript (control flow, type system, declarations).
+- Built‑in functions = toolbox for working with arrays, strings, objects, and numbers.
+- `is` is special: it’s not a return type, but a type guard that helps the compiler narrow types.
 
-🔹 String Methods
-.toUpperCase(), .toLowerCase() → change case.
+## 1. `any` (The Escape Hatch)
 
-.trim() → remove spaces.
+The `any` type completely disables TypeScript's safety features. It allows a variable to hold literally any data type, and lets you access any property or method on it without checking if it exists. Using `any` can lead to runtime crashes.
 
-.split() → break into array.
+```typescript
+let dynamicValue: any = "Hello";
+dynamicValue = 42; // Allowed
+dynamicValue.toUpperCase(); // Compiles perfectly, but crashes at runtime because 42 is a number!
+```
 
-.includes() → check substring.
+Use code with caution.
 
-.replace() → replace part of string.
+## 2. `unknown` (The Safe Alternative to `any`)
 
-🔹 Object Utilities
-Object.keys(obj) → property names.
+Like `any`, you can assign any value to an `unknown` variable. However, TypeScript will not let you interact with it until you explicitly check or prove what type it actually is (type narrowing).
 
-Object.values(obj) → property values.
+```typescript
+let secureValue: unknown = "Hello";
 
-Object.entries(obj) → key/value pairs.
+// secureValue.toUpperCase(); // ❌ Compiler Error: Object is of type 'unknown'.
 
-🔹 Math Utilities
-Math.max(), Math.min() → largest/smallest.
+if (typeof secureValue === "string") {
+    secureValue.toUpperCase(); // Allowed! TypeScript now knows it's a string.
+}
+```
 
-Math.floor(), Math.ceil(), Math.round() → rounding.
+Use code with caution.
 
-Math.random() → random number between 0 and 1.
+## 3. `void` (Function Returns Nothing)
 
-✅ Summary:
+`void` is used almost exclusively as a function return type. It means the function executes its logic (like logging to a console or saving to a database) but doesn't pass back a usable value.
 
-Keywords = grammar of TypeScript (control flow, type system, declarations).
+```typescript
+function logMessage(message: string): void {
+    console.log(message);
+    // No return statement here
+}
+```
 
-Built‑in functions = toolbox for working with arrays, strings, objects, and numbers.
+Use code with caution.
 
-is is special: it’s not a return type, but a type guard that helps the compiler narrow types.
+## 4. `undefined` (The Primitive Value)
 
+`undefined` is an actual value in JavaScript/TypeScript. In TypeScript, it is usually used to mark object properties that are optional or variables that might not have a value yet.
 
-1. any (The Escape Hatch)The any type completely disables TypeScript's safety features. It allows a variable to hold literally any data type, and lets you access any property or method on it without checking if it exists. Using any can lead to runtime crashes.
+```typescript
+let user: { name: string; age?: number }; // age can be a number or undefined
 
-    typescript
+let trackingId: undefined = undefined; // Can only hold the value 'undefined'
+```
 
-    let dynamicValue: any = "Hello";
-    dynamicValue = 42; // Allowed
-    dynamicValue.toUpperCase(); // Compiles perfectly, but crashes at runtime because 42 is a number!
-    Use code with caution.
-
-2. unknown (The Safe Alternative to any)Like any, you can assign any value to an unknown variable. However, TypeScript will not let you interact with it until you explicitly check or prove what type it actually is (type narrowing).
-
-    typescript
-
-    let secureValue: unknown = "Hello";
-
-    // secureValue.toUpperCase(); // ❌ Compiler Error: Object is of type 'unknown'.
-
-    if (typeof secureValue === "string") {
-        secureValue.toUpperCase(); //  Allowed! TypeScript now knows it's a string.
-    }
-    Use code with caution.
-
-3. void (Function Returns Nothing)void is used almost exclusively as a function return type. It means the function executes its logic (like logging to a console or saving to a database) but doesn't pass back a usable value.
-
-    function logMessage(message: string): void {
-        console.log(message);
-        // No return statement here
-    }
-    Use code with caution.
-
-
-4. undefined (The Primitive Value)undefined is an actual value in JavaScript/TypeScript. In TypeScript, it is usually used to mark object properties that are optional or variables that might not have a value yet.
-
-    let user: { name: string; age?: number }; // age can be a number or undefined
-
-    let trackingId: undefined = undefined; // Can only hold the value 'undefined'
-    Use code with caution.
+Use code with caution.
