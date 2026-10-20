@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///workspaces/sigma-web-dev-projects/nextjs-one-shot/components/Explorebtn.tsx"],"sourcesContent":["'use client'\nconst Explorebtn = () => {\n  return (\n    <button type=\"button\" id=\"explore-btn\" className=\"mt-7 mx-auto\" \n    onClick = {() => {\n      console.log(\"Navigating to events\");\n\n      }}>\n      <a href=\"#events\">\n        Explore events\n      </a>\n      <img src=\"/icons/arrow-down.svg\" alt=\"arrow\" />\n    </button>\n  );\n};\n\nexport default Explorebtn;\n\n// In JSX, the handler must be wrapped in curly braces: onClick={() => { ... }}, not onClick = () => { ... }.\n//why will i get a error if i write div under button because The error happens because a React component can only return one root element."],"names":["Explorebtn","type","id","className","onClick","console","log","href","src","alt"],"mappings":";;;;;AAAA;;AACA,MAAMA,aAAa;IACjB,qBACE,6LAAC;QAAOC,MAAK;QAASC,IAAG;QAAcC,WAAU;QACjDC,SAAW;YACTC,QAAQC,GAAG,CAAC;QAEZ;;0BACA,6LAAC;gBAAEC,MAAK;0BAAU;;;;;;0BAGlB,6LAAC;gBAAIC,KAAI;gBAAwBC,KAAI;;;;;;;;;;;;AAG3C;KAbMT;uCAeSA;;;;;;CAEf,6GAA6G;CAC7G,0IAA0I"}}]
+}

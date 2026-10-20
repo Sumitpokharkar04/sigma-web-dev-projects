@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 13, "column": 0}, "map": {"version":3,"sources":["file:///workspaces/sigma-web-dev-projects/nextjs-one-shot/app/favicon.ico.mjs%20(structured%20image%20object)"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 256, height: 256 }\n"],"names":["src","width","height"],"mappings":";;;;AAAA;;uCACe;IAAEA,KAAAA,4JAAG;IAAEC,OAAO;IAAKC,QAAQ;AAAI"}},
+    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":["file:///workspaces/sigma-web-dev-projects/nextjs-one-shot/app/page.tsx"],"sourcesContent":["import React from \"react\";\n\nconst page = () =>{\n  return (\n    <div>welcome to nextJS 16!</div>\n  )\n}\n\nexport default page;"],"names":["page"],"mappings":";;;;;;AAEA,MAAMA,OAAO;IACX,qBACE,uQAAC;kBAAI;;;;;;AAET;uCAEeA"}}]
+}

@@ -62,5 +62,5 @@ type letslearn = {
 
 function LL (XYZ:letslearn)
 {
-    XYZ.masala = 20;
+    // XYZ.masala = 20;
 }
